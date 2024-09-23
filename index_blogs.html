@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blogs Home Page</title>
+  <style>
+    /* Base Style */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      background-color: #f4f4f4;
+      scroll-behavior: smooth;
+    }
+
+    /* Header */
+    .header {
+      background-color: white;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #e0e0e0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .header .logo {
+      font-size: 18px;
+      color: #333;
+      letter-spacing: 0px;
+    }
+
+    .header nav a {
+      margin-left: 20px;
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+    }
+
+    .header nav a:hover {
+      color: #1a73e8;
+    }
+
+    /* Main Section */
+    .main {
+      padding: 40px;
+    }
+
+    .main h1 {
+      font-size: 38px;
+      margin-bottom: 40px;
+      color: #195e83;
+      text-align: center;
+      letter-spacing: 0px;
+    }
+
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      grid-gap: 30px;
+    }
+
+    /* Blog Card */
+    .blog-card {
+      background-color: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Image Zoom Effect */
+    .blog-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .blog-card:hover img {
+      transform: scale(1.1);
+    }
+
+    .blog-card .content {
+      padding: 20px;
+    }
+
+    .blog-card h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+      color: #333;
+    }
+
+    .blog-card p {
+      font-size: 16px;
+      color: #777;
+      margin-bottom: 15px;
+    }
+
+    .blog-card .author {
+      font-size: 14px;
+      color: #999;
+      margin-bottom: 15px;
+    }
+
+    /* Read More Button Animation */
+    .read-more {
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 14px;
+      color: #1a73e8;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .read-more::after {
+      content: "→";
+      opacity: 0;
+      position: absolute;
+      right: -20px;
+      top: 0;
+      transition: opacity 0.3s, right 0.3s;
+    }
+
+    .read-more:hover {
+      color: #0056b3;
+    }
+
+    .read-more:hover::after {
+      opacity: 1;
+      right: -5px;
+    }
+
+    /* Footer */
+    .footer {
+      margin-top: 40px;
+      padding: 20px;
+      text-align: center;
+      background-color: white;
+      border-top: 1px solid #e0e0e0;
+      font-size: 14px;
+      color: #777;
+      position: relative;
+    }
+
+    @media (max-width: 768px) {
+      .header {
+        padding: 15px;
+      }
+
+      .main {
+        padding: 30px 15px;
+      }
+
+      .main h1 {
+        font-size: 32px;
+      }
+
+      .blog-card img {
+        height: 160px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <div class="header">
+    <div class="logo">Blog Home</div>
+    <nav>
+      <a href="#">Home</a>
+    </nav>
+  </div>
+
+  <!-- Main Content -->
+  <div class="main">
+    <h1>Explore technology</h1>
+
+    <div class="blog-grid">
+      
+
+      <!-- Blog Card 2 -->
+      <div class="blog-card" onclick="window.location.href='smart_assistive_gear_blog_v1.html'">
+        <img src="blogs_pictures/sddefault.jpg" alt="Blog 2 Image">
+        <div class="content">
+          <h3>Smart and Assistive Riding Gear</h3>
+          <p class="author">July 20, 2018</p>
+          <p>A Smart Helmet with Augmented Reality and Accident Detection.</p>
+          <a href="smart_assistive_gear_blog_v1.html" class="read-more">Read More</a>
+        </div>
+      </div>
+	   <!-- Blog Card 4 -->
+      <div class="blog-card" onclick="window.location.href='Final_year_project_blog_v1.html'">
+        <img src="blogs_pictures/ip_address.png" alt="Blog 4 Image">
+        <div class="content">
+          <h3>IP Address Prediction</h3>
+          <p class="author">May 16, 2020</p>
+          <p>Predicting IP Addresses in Cloud Computing: A Unified End-to-End Methodology.</p>
+          <a href="Final_year_project_blog_v1.html" class="read-more">Read More</a>
+        </div>
+      </div>
+	  <!-- Blog Card 1 -->
+      <div class="blog-card" onclick="window.location.href='PE_blog_v1.html'">
+        <img src="blogs_pictures/PE_cover_image.png" alt="Blog 1 Image">
+        <div class="content">
+          <h3>Impact of Private Equity Ownership</h3>
+          <p class="author">September 22, 2024</p>
+          <p>Impact of  PE ownership on firms: backed by data-driven insights and predictive modeling.</p>
+          <a href="PE_blog_v1.html" class="read-more">Read More</a>
+        </div>
+      </div>
+      <!-- Blog Card 3 -->
+      <div class="blog-card" onclick="window.location.href='duckDB_plural_theme_v1.html'">
+        <img src="blogs_pictures/ducddb_prof.png" alt="Blog 3 Image">
+        <div class="content">
+          <h3>DuckDb: Introduction & Usecases</h3>
+          <p class="author">March 18, 2023</p>
+          <p>How to Use It and Explore Use Cases with Memory Profiling.</p>
+          <a href="duckDB_plural_theme_v1.html" class="read-more">Read More</a>
+        </div>
+      </div>
+
+     
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    &copy; 2024 My Blog. All rights reserved.
+  </div>
+
+</body>
+</html>

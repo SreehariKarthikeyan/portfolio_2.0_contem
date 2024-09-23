@@ -1,0 +1,743 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Revolutionizing Rider Safety: A Smart Helmet with Augmented Reality and Accident Detection</title>
+    <!-- Google Fonts and Prism.js for Syntax Highlighting -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #121212; /* Dark background */
+            color: #e0e0e0; /* Light text color */
+            margin: 0;
+            padding: 20px;
+            max-width: 900px; /* Increased max-width for better readability */
+            margin: auto;
+            line-height: 1.6;
+        }
+        a {
+            color: #bb86fc; /* Colorful accents */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3, h4 {
+            font-family: 'Lora', serif; /* Preserved 'Lora' font */
+            font-weight: 700;
+            color: #bb86fc; /* Colorful accents for headings */
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 2em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.75em;
+            margin-top: 25px;
+        }
+        h4 {
+            font-size: 1.5em;
+            margin-top: 20px;
+        }
+        p {
+            font-size: 1.1em;
+            margin-top: 20px;
+            color: #cccccc;
+        }
+        blockquote {
+            border-left: 4px solid #bb86fc;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #999999;
+        }
+        /* Code Blocks with Consistent Code Editor Background */
+        .code-block {
+            background-color: #2d2d2d; /* Dark background for code blocks */
+            color: #f8f8f2; /* Light text color */
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Source Code Pro', monospace; /* Monospace font for code */
+            overflow-x: auto;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* Tables with Visible Boundaries */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            margin-bottom: 30px;
+        }
+        table, th, td {
+            border: 1px solid #ffffff; /* White borders for visibility */
+        }
+        th, td {
+            padding: 12px;
+            text-align: center;
+        }
+        th {
+            background-color: #1f1f1f;
+            color: #bb86fc;
+        }
+        tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+        /* Images */
+        img {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 8px;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #777777;
+            text-align: center;
+            margin-top: 5px;
+        }
+        /* Author and Subtitle Styles */
+        .author {
+            font-size: 1em;
+            color: #bbbbbb;
+            margin-top: -10px;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #bbbbbb;
+            margin-top: 10px;
+        }
+        /* Call-to-Action */
+        .call-to-action {
+            font-size: 1.2em;
+            margin-top: 40px;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #333333;
+            color: #777777;
+            font-size: 0.9em;
+        }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            h4 {
+                font-size: 1em;
+            }
+            body {
+                padding: 0 10px;
+            }
+            .code-block {
+                padding: 10px;
+            }
+        }
+    </style>
+    <!-- Prism.js for Syntax Highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
+</head>
+<body>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>Revolutionizing Rider Safety: A Smart Helmet with Augmented Reality and Accident Detection</h1>
+            <p class="author">By Sreehari Karthikeyan <sup>1</sup></p>
+            <p class="author"><em>This is my 3rd-year college project.</em></p>
+            <p class="author"><em>Published in IEEE. <a href="https://ieeexplore.ieee.org/document/8723943" target="_blank">Read the full paper here.</a></em></p>
+        </header>
+
+        <hr>
+
+        <p class="subtitle"><em>Imagine riding your motorcycle with all the essential information seamlessly displayed in your line of sight, without ever having to take your eyes off the road. Introducing our innovative smart helmet, equipped with a heads-up display (HUD) enhanced with Augmented Reality (AR), and an advanced accident detection system to keep you safe on every journey.</em></p>
+
+        <hr>
+
+        <img src="blogs_pictures/sddefault.jpg" alt="Circuit Diagram">
+        <p class="image-caption">Figure 1: Futuristic Diagram of the Smart Helmet System</p>
+
+        <hr>
+
+        <!-- Prerequisites Section -->
+        <section>
+            <h2>Prerequisites</h2>
+            <h3>Hardware Components:</h3>
+            <ul>
+                <li>Raspberry Pi (any model with GPIO pins and display capability)</li>
+                <li>Pressure Sensor or PIR Sensor connected to GPIO pin 7</li>
+                <li>GPS Module connected via serial port (e.g., /dev/ttyAMA0)</li>
+                <li>HUD Display connected to Raspberry Pi (e.g., HDMI, SPI, or other compatible displays)</li>
+            </ul>
+
+            <h3>Software Libraries:</h3>
+            <ul>
+                <li>Python 3 installed on Raspberry Pi</li>
+            </ul>
+
+            <p>Install necessary Python libraries using pip:</p>
+            <div class="code-block">
+                <pre class="language-bash"><code class="language-bash">pip install RPi.GPIO requests pygame pillow pyserial pynmea2</code></pre>
+            </div>
+
+            <h3>API Keys and Credentials:</h3>
+            <ul>
+                <li><strong>Google Maps Static API Key:</strong> Obtain from the Google Cloud Console.</li>
+                <li><strong>SMS Service Credentials:</strong> The example uses TextLocal. Replace with your SMS service provider if different.</li>
+            </ul>
+        </section>
+
+        <hr>
+
+        <h2>Why a Smart Helmet?</h2>
+        <p>Motorcycle riding offers unparalleled freedom and convenience, but it also comes with significant risks. Accidents can result in severe injuries or even fatalities, especially when riders are not adequately protected. Traditional helmets provide essential protection by reducing the impact of collisions, but they lack advanced features that could further enhance rider safety and convenience.</p>
+
+        <p>Our project aims to bridge this gap by developing a smart helmet integrated with a heads-up display (HUD) and an accident detection module. This helmet not only ensures that the rider is wearing it before allowing the bike to start but also provides real-time navigation, call notifications, and automatic accident reporting to emergency contacts. By leveraging technologies such as AR, Bluetooth, GPS, and GSM, we have created a comprehensive safety solution for modern riders.</p>
+
+        <hr>
+
+        <h3>Key Features of the Smart Helmet</h3>
+
+       
+        <h4>1. Heads-Up Display (HUD)</h4>
+        <p>The HUD is a game-changer for motorcycle safety and convenience. Connected to the rider's mobile device via Bluetooth, the HUD displays real-time navigation directions, call notifications, and message alerts directly in the rider's line of sight. By using AR technology, the HUD overlays this information on a transparent glass visor, allowing the rider to stay informed without diverting attention from the road. This reduces the need to check a smartphone or GPS device, minimizing distractions and enhancing safety.</p>
+
+        <h4>2. Accident Detection</h4>
+        <p>Accidents can happen unexpectedly, and immediate response is crucial. Our helmet is equipped with vibration sensors strategically placed at high-risk points. These sensors continuously monitor the intensity of vibrations experienced by the helmet. If a collision causes vibrations that exceed a predefined threshold, the microcontroller processes the data and sends a signal to the rider's mobile device via Bluetooth. The mobile device then uses GPS to determine the crash location and automatically sends this information to emergency services and predefined contacts through an installed application.</p>
+		 
+		<h4>3. Switching on the Bike</h4>
+        <p>The first module ensures that the motorcycle cannot be started unless the rider is wearing the helmet. This is achieved using a pressure sensor embedded in the helmet. When the rider wears the helmet, the pressure sensor detects the applied pressure and sends a signal to the bike's microcontroller via an RF transmitter. If the pressure is sufficient, indicating that the helmet is being worn, the bike will start; otherwise, it remains off.</p>
+
+        <hr>
+
+        <h2>Implementation: Bringing the Smart Helmet to Life</h2>
+
+        <h3>System Workflow</h3>
+        <p>The smart helmet system operates through three main workflows:</p>
+
+       
+       
+        <h4>a. Heads-Up Display</h4>
+        <p>As soon as the rider wears the helmet, it connects to the mobile device via Bluetooth. The mobile device checks if the HUD is switched on. If the HUD is active, it sends all relevant data, including current navigation, calls, and message notifications, to the helmet's microcontroller. The microcontroller processes this data and displays it on the HUD, providing the rider with essential information without distractions.</p>
+
+ <img src="blogs_pictures/3D_Printed_HUD.png" alt="Workflow for Switching on the Bike">
+        <p class="image-caption">Figure 2(a): Heads Up Display on the Bike</p>
+
+        <h4>b. Detecting an Accident</h4>
+        <p>When the helmet is worn, the vibration sensor is activated and continuously measures vibration intensity. If the vibration exceeds a set threshold, the microcontroller sends a signal to the mobile device via Bluetooth. The mobile device retrieves the crash location using GPS and sends this information to emergency services and two pre-selected contacts through an installed application.</p>
+
+        <img src="blogs_pictures/PI_sensor.png" alt="Workflow for Accident Detection">
+        <p class="image-caption">Figure 2(b): Accident Detection Module</p>
+
+       
+		<h4>c. Switching on the Bike</h4>
+        <p>The rider wears the helmet, activating the pressure sensor. The sensor sends a high output signal to the microcontroller, which processes the input and transmits it to the bike module via an RF transmitter. The bike module receives the signal through an RF receiver and sends it to its microcontroller. If the pressure sensor output is high, indicating that the helmet is worn, the bike's engine will start; otherwise, it will remain off.</p>
+
+        <h3>System Requirements</h3>
+        <p>The system is implemented using a combination of hardware and software components. Below is a table outlining the essential components used in the smart helmet:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Sr. No</th>
+                    <th>Components</th>
+                    <th>Component Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1.</td>
+                    <td>Raspberry Pi</td>
+                    <td>Pi Version 2</td>
+                </tr>
+                <tr>
+                    <td>2.</td>
+                    <td>Pressure Sensor</td>
+                    <td>BMP 180</td>
+                </tr>
+                <tr>
+                    <td>3.</td>
+                    <td>Vibration Sensor</td>
+                    <td>Vibration Sensor SW420</td>
+                </tr>
+                <tr>
+                    <td>4.</td>
+                    <td>Heads-Up Display</td>
+                    <td>4.5-inch Transparent OLED</td>
+                </tr>
+                <tr>
+                    <td>5.</td>
+                    <td>Android Device</td>
+                    <td>Google Auto App Installed</td>
+                </tr>
+            </tbody>
+        </table>
+    </section>
+
+    <hr>
+
+    <!-- Coding Implementation Section -->
+    <section>
+        <h2>Coding Implementation</h2>
+        <p>Implementing the accident detection, SMS sending, and map display functionalities involves writing Python scripts that interface with the Raspberry Pi's GPIO pins and handle communication with the mobile device. Below is the comprehensive code used in the system:</p>
+
+        <h3>Complete Python Script for Accident Detection and Map Display</h3>
+        <div class="code-block">
+            <pre class="language-python"><code class="language-python">
+import RPi.GPIO as GPIO
+import time
+import requests
+import pygame
+from pygame.locals import *
+from PIL import Image
+import io
+import serial
+import pynmea2
+
+# ============================
+# Configuration and Setup
+# ============================
+
+# GPIO setup
+GPIO.setmode(GPIO.BCM)
+GPIO_VIB = 7  # GPIO pin connected to the sensor
+GPIO.setup(GPIO_VIB, GPIO.IN)
+
+# SMS sending function
+def sendSMS(uname, pword, numbers, sender, message):
+    """
+    Sends an SMS using TextLocal API.
+
+    Args:
+        uname (str): Username for TextLocal.
+        pword (str): Password for TextLocal.
+        numbers (str): Comma-separated phone numbers.
+        sender (str): Sender ID.
+        message (str): Message content.
+
+    Returns:
+        tuple: Response text and status code.
+    """
+    params = {
+        'uname': uname,
+        'pword': pword,
+        'selectednums': numbers,
+        'message': message,
+        'from': sender
+    }
+    try:
+        response = requests.post('https://www.textlocal.co.uk/sendsmspost.php', data=params)
+        return response.text, response.status_code
+    except Exception as e:
+        print("Error sending SMS:", e)
+        return None, None
+
+# GPS reading function
+def get_current_location(serial_port='/dev/ttyAMA0', baudrate=9600, timeout=1):
+    """
+    Retrieves the current GPS location.
+
+    Args:
+        serial_port (str): Serial port where GPS module is connected.
+        baudrate (int): Baud rate for serial communication.
+        timeout (int): Read timeout in seconds.
+
+    Returns:
+        tuple: Latitude and Longitude as floats. (None, None) if failed.
+    """
+    try:
+        ser = serial.Serial(serial_port, baudrate, timeout=timeout)
+        while True:
+            line = ser.readline().decode('ascii', errors='replace')
+            if line.startswith('$GPGGA'):
+                msg = pynmea2.parse(line)
+                lat = msg.latitude
+                lon = msg.longitude
+                ser.close()
+                return lat, lon
+    except Exception as e:
+        print("Error reading GPS data:", e)
+        return None, None
+
+# Function to fetch map image from Google Maps Static API
+def fetch_map_image(api_key, lat, lon, zoom=15, size="640x480", maptype="roadmap", markers=True):
+    """
+    Fetches a static map image from Google Maps.
+
+    Args:
+        api_key (str): Google Maps Static API key.
+        lat (float): Latitude.
+        lon (float): Longitude.
+        zoom (int): Zoom level.
+        size (str): Image size in pixels (e.g., "640x480").
+        maptype (str): Type of map (e.g., "roadmap", "satellite").
+        markers (bool): Whether to add a marker at the location.
+
+    Returns:
+        PIL.Image: Map image. None if failed.
+    """
+    base_url = "https://maps.googleapis.com/maps/api/staticmap?"
+    params = {
+        "center": f"{lat},{lon}",
+        "zoom": zoom,
+        "size": size,
+        "maptype": maptype,
+        "key": api_key
+    }
+    if markers:
+        params["markers"] = f"color:red|{lat},{lon}"
+    response = requests.get(base_url, params=params)
+    if response.status_code == 200:
+        return Image.open(io.BytesIO(response.content))
+    else:
+        print("Error fetching map image:", response.status_code)
+        return None
+
+# Function to display image using Pygame
+def display_map(image):
+    """
+    Displays the provided image on the connected display using Pygame.
+
+    Args:
+        image (PIL.Image): Image to display.
+    """
+    pygame.init()
+    # Convert PIL image to Pygame surface
+    mode = image.mode
+    size = image.size
+    data = image.tobytes()
+
+    pygame_image = pygame.image.fromstring(data, size, mode)
+
+    # Set up the display
+    screen = pygame.display.set_mode(size)
+    pygame.display.set_caption('Map Display')
+
+    # Blit the image to the screen
+    screen.blit(pygame_image, (0, 0))
+    pygame.display.flip()
+
+    # Keep the window open until user closes it
+    running = True
+    while running:
+        for event in pygame.event.get():
+            if event.type == QUIT:
+                running = False
+        # Optional: Add a timeout or additional conditions
+        time.sleep(0.1)
+    pygame.quit()
+
+# ============================
+# Main Program
+# ============================
+
+def main():
+    # ============================
+    # User Configuration
+    # ============================
+
+    # SMS credentials and settings
+    SMS_UNAME = "jasebell@xxxxxxxx"       # Replace with your TextLocal username
+    SMS_PWORD = "xx_password_xx"          # Replace with your TextLocal password
+    SMS_NUMBERS = "447900xxxxxxx"         # Replace with recipient phone numbers
+    SMS_SENDER = "4479"                    # Replace with your sender ID
+
+    # Google Maps API Key
+    GOOGLE_MAPS_API_KEY = "YOUR_GOOGLE_MAPS_API_KEY"  # Replace with your API key
+
+    # ============================
+    # State Variables
+    # ============================
+
+    Current_State = 0
+    Previous_State = 0
+
+    print("Smart Helmet System Initialized. Monitoring for accidents...")
+
+    try:
+        while True:
+            if GPIO.input(GPIO_VIB) == 1:
+                Current_State = 0
+                print("Sensor Ready")
+                while True:
+                    Current_State = GPIO.input(GPIO_VIB)
+                    if Current_State == 1 and Previous_State == 0:
+                        print("Accident detected!")
+                        
+                        # Get current location
+                        lat, lon = get_current_location()
+                        if lat and lon:
+                            print(f"Current Location: Latitude={lat}, Longitude={lon}")
+                            
+                            # Prepare SMS message with Google Maps link
+                            sms_message = f"Accident detected at location: https://maps.google.com/?q={lat},{lon}"
+                            
+                            # Send SMS notification
+                            response_text, status_code = sendSMS(SMS_UNAME, SMS_PWORD, SMS_NUMBERS, SMS_SENDER, sms_message)
+                            if status_code == 200:
+                                print("SMS sent successfully.")
+                            else:
+                                print(f"Failed to send SMS. Status Code: {status_code}")
+                            
+                            # Fetch map image
+                            map_image = fetch_map_image(GOOGLE_MAPS_API_KEY, lat, lon)
+                            if map_image:
+                                print("Map image fetched successfully. Displaying on HUD...")
+                                display_map(map_image)
+                            else:
+                                print("Failed to fetch map image.")
+                        else:
+                            print("Unable to retrieve current location.")
+                            # Send SMS without location
+                            sms_message = "Accident detected, but unable to retrieve location."
+                            sendSMS(SMS_UNAME, SMS_PWORD, SMS_NUMBERS, SMS_SENDER, sms_message)
+                        
+                        Previous_State = 1
+                    elif Current_State == 0 and Previous_State == 1:
+                        print("System Ready")
+                        Previous_State = 0
+                    # Wait for 10 milliseconds
+                    time.sleep(0.01)
+            else:
+                # Sensor not triggered
+                time.sleep(0.1)
+    except KeyboardInterrupt:
+        print("\nProgram terminated by user.")
+    finally:
+        GPIO.cleanup()
+        print("GPIO cleanup completed.")
+
+if __name__ == "__main__":
+    main()
+            </code></pre>
+        </div>
+        <p><em>This comprehensive script integrates accident detection using a vibration sensor, sends SMS notifications to emergency contacts, and displays a map with the current location on a connected HUD. Ensure to replace the placeholder values with your actual credentials and API keys.</em></p>
+    </section>
+
+    <hr>
+
+    <!-- Detailed Explanation Section -->
+    <section>
+        <h2>Detailed Explanation</h2>
+
+        <h3>1. Importing Libraries</h3>
+        <p><strong>RPi.GPIO:</strong> To interact with the Raspberry Pi's GPIO pins.</p>
+        <p><strong>time:</strong> For handling delays.</p>
+        <p><strong>requests:</strong> To make HTTP requests to APIs.</p>
+        <p><strong>pygame:</strong> For displaying images on the HUD.</p>
+        <p><strong>PIL (Pillow):</strong> To handle image processing.</p>
+        <p><strong>io:</strong> For handling byte streams.</p>
+        <p><strong>serial:</strong> To communicate with the GPS module.</p>
+        <p><strong>pynmea2:</strong> To parse NMEA sentences from the GPS module.</p>
+
+        <h3>2. GPIO Setup</h3>
+        <p>Sets the GPIO mode to BCM.</p>
+        <p>Configures GPIO pin 7 as an input pin connected to the sensor (e.g., pressure or PIR sensor).</p>
+
+        <h3>3. SMS Sending Function (<code>sendSMS</code>)</h3>
+        <p><strong>Parameters:</strong></p>
+        <ul>
+            <li><code>uname:</code> Your TextLocal username.</li>
+            <li><code>pword:</code> Your TextLocal password.</li>
+            <li><code>numbers:</code> Comma-separated list of recipient phone numbers.</li>
+            <li><code>sender:</code> Sender ID.</li>
+            <li><code>message:</code> The message content.</li>
+        </ul>
+        <p><strong>Functionality:</strong></p>
+        <ul>
+            <li>Sends a POST request to TextLocal's SMS API endpoint with the necessary parameters.</li>
+            <li>Returns the response text and status code for logging purposes.</li>
+        </ul>
+
+        <h3>4. GPS Reading Function (<code>get_current_location</code>)</h3>
+        <p><strong>Parameters:</strong></p>
+        <ul>
+            <li><code>serial_port:</code> The serial port where the GPS module is connected (default is /dev/ttyAMA0).</li>
+            <li><code>baudrate:</code> Communication speed (default is 9600).</li>
+            <li><code>timeout:</code> Read timeout in seconds.</li>
+        </ul>
+        <p><strong>Functionality:</strong></p>
+        <ul>
+            <li>Reads NMEA sentences from the GPS module.</li>
+            <li>Parses the <code>$GPGGA</code> sentence to extract latitude and longitude.</li>
+            <li>Returns the latitude and longitude as floats. If unsuccessful, returns (<code>None</code>, <code>None</code>).</li>
+        </ul>
+
+        <h3>5. Fetching Map Image (<code>fetch_map_image</code>)</h3>
+        <p><strong>Parameters:</strong></p>
+        <ul>
+            <li><code>api_key:</code> Your Google Maps Static API key.</li>
+            <li><code>lat:</code> Latitude.</li>
+            <li><code>lon:</code> Longitude.</li>
+            <li><code>zoom:</code> Zoom level of the map.</li>
+            <li><code>size:</code> Size of the map image in pixels.</li>
+            <li><code>maptype:</code> Type of map (e.g., roadmap, satellite).</li>
+            <li><code>markers:</code> Whether to place a marker on the location.</li>
+        </ul>
+        <p><strong>Functionality:</strong></p>
+        <ul>
+            <li>Constructs the Google Maps Static API URL with the provided parameters.</li>
+            <li>Sends a GET request to fetch the map image.</li>
+            <li>Returns the image as a <code>PIL.Image</code> object if successful; otherwise, returns <code>None</code>.</li>
+        </ul>
+
+        <h3>6. Displaying the Map (<code>display_map</code>)</h3>
+        <p><strong>Parameters:</strong></p>
+        <ul>
+            <li><code>image:</code> The <code>PIL.Image</code> object to display.</li>
+        </ul>
+        <p><strong>Functionality:</strong></p>
+        <ul>
+            <li>Initializes Pygame and converts the PIL image to a Pygame surface.</li>
+            <li>Sets up the display window with the image size.</li>
+            <li>Blits the image onto the screen and updates the display.</li>
+            <li>Keeps the window open until the user closes it.</li>
+        </ul>
+
+        <h3>7. Main Program Logic (<code>main</code>)</h3>
+        <p><strong>Configuration:</strong></p>
+        <ul>
+            <li>Replace the placeholders with your actual SMS service credentials and Google Maps API key.</li>
+        </ul>
+        <p><strong>Flow:</strong></p>
+        <ul>
+            <li><strong>Initialization:</strong> Prints a startup message.</li>
+            <li><strong>Monitoring Loop:</strong> Continuously monitors the sensor state.</li>
+            <li><strong>Accident Handling:</strong>
+                <ul>
+                    <li><strong>Location Retrieval:</strong> Attempts to get the current GPS location.</li>
+                    <li><strong>SMS Notification:</strong> Sends the SMS to the predefined emergency contacts.</li>
+                    <li><strong>Map Fetching and Display:</strong> Fetches the static map image centered on the current location and displays it on the connected HUD.</li>
+                </ul>
+            </li>
+            <li><strong>State Management:</strong> Updates the state to prevent repeated alerts until the sensor resets.</li>
+            <li><strong>Graceful Termination:</strong> Handles KeyboardInterrupt (Ctrl+C) to allow the user to terminate the program and cleans up GPIO settings before exiting.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- Usage Instructions Section -->
+    <section>
+        <h2>Usage Instructions</h2>
+        <h3>Configure Hardware:</h3>
+        <ul>
+            <li>Connect your sensor to GPIO pin 7.</li>
+            <li>Connect the GPS module to the designated serial port.</li>
+            <li>Ensure the HUD display is properly connected and recognized by the Raspberry Pi.</li>
+        </ul>
+
+        <h3>Update the Script:</h3>
+        <ul>
+            <li>Replace the placeholders in the script with your actual TextLocal credentials and Google Maps API Key.</li>
+            <li>Adjust the serial port in <code>get_current_location</code> if your GPS module is connected to a different port.</li>
+        </ul>
+
+        <h3>Run the Script:</h3>
+        <p>Make the script executable:</p>
+        <div class="code-block">
+            <pre class="language-bash"><code class="language-bash">chmod +x smart_helmet.py</code></pre>
+        </div>
+        <p>Execute the script:</p>
+        <div class="code-block">
+            <pre class="language-bash"><code class="language-bash">python3 smart_helmet.py</code></pre>
+        </div>
+
+        <h3>Testing:</h3>
+        <p>Simulate an accident by triggering the sensor. Ensure that:</p>
+        <ul>
+            <li>An SMS is sent to the emergency contacts with the correct location link.</li>
+            <li>The HUD display shows the map centered on your current location.</li>
+        </ul>
+    </section>
+
+    <hr>
+
+    <!-- Additional Considerations Section -->
+    <section>
+        <h2>Additional Considerations</h2>
+        <h3>Error Handling:</h3>
+        <p>The script includes basic error handling for SMS sending and GPS reading. You can enhance it further based on specific requirements.</p>
+
+        <h3>Power Management:</h3>
+        <p>Since this is a helmet project, ensure that the Raspberry Pi and connected peripherals are adequately powered without being bulky.</p>
+
+        <h3>Real-Time Updates:</h3>
+        <p>For real-time navigation or continuous map updates, consider implementing a more dynamic solution using Google Maps APIs or other mapping services.</p>
+
+        <h3>Security:</h3>
+        <p>Protect your API keys and credentials. Avoid hardcoding sensitive information in the script for production environments. Consider using environment variables or secure storage solutions.</p>
+
+        <h3>Optimizations:</h3>
+        <ul>
+            <li>To reduce latency, cache map images or use lower resolution images suitable for the HUD display.</li>
+            <li>Implement debounce logic for the sensor to prevent false positives.</li>
+        </ul>
+
+        <p>This script provides a solid foundation for your smart helmet project, integrating sensor-based accident detection with emergency notifications and location visualization. You can further customize and expand its functionalities based on your specific needs.</p>
+    </section>
+
+    <hr>
+
+    <!-- Circuit Diagram and Assembly Section -->
+    <section>
+        <h3>Circuit Diagram and Assembly</h3>
+        <p>Setting up the hardware components correctly is crucial for the system's functionality. Below are the steps to assemble the circuit:</p>
+
+        <ol>
+            <li><strong>Insert HUD Display into the Breadboard:</strong> Start by placing the HUD display onto the breadboard, ensuring it is securely positioned.</li>
+            <li><strong>Connect Ground:</strong> Using a male-to-female jumper wire, attach the male end to the ground pin on the HUD display. Then, connect the female end to pin 6 on the Raspberry Pi, which is also ground.</li>
+            <li><strong>Power the HUD Display:</strong> Using another male-to-female jumper wire, connect the 'Vin' pin on the HUD display to pin 1 on the Raspberry Pi. This serves as the power line.</li>
+            <li><strong>Skip the 3.3V Pin:</strong> Connect the HUD display's pin labeled 'Clk' to pin 23 on the Raspberry Pi using a male-to-female jumper wire.</li>
+            <li><strong>Reset Pin:</strong> Attach the 'Rst' pin on the HUD display to pin 8 on the Raspberry Pi using a jumper wire.</li>
+            <li><strong>Connect DC Pin:</strong> Attach the 'DC' pin on the HUD display to pin 10 on the Raspberry Pi using a jumper wire.</li>
+            <li><strong>Data Pin Connection:</strong> Finally, connect the data pin on the HUD display to pin 19 on the Raspberry Pi using a male-to-female jumper wire.</li>
+        </ol>
+
+        <img src="blogs_pictures/circuit diagram.PNG" alt="Circuit Diagram">
+        <p class="image-caption">Circuit Diagram of the Smart Helmet System</p>
+    </section>
+
+    <hr>
+
+    <!-- Conclusion Section -->
+    <section>
+        <h2>Conclusion</h2>
+        <p>The smart helmet project marks a significant advancement in motorcycle safety technology. By ensuring that riders wear the helmet before allowing the bike to start, and by providing real-time navigation and call notifications through the HUD, the helmet minimizes distractions and enhances rider focus on the road. The integrated accident detection module, which automatically notifies emergency services and contacts in the event of a crash, adds an invaluable layer of safety, potentially saving lives by facilitating prompt medical attention.</p>
+        <p>As urbanization continues to increase motorcycle usage, such innovations are essential in reducing road accidents and improving overall rider safety. The combination of AR-enhanced HUD and smart accident detection paves the way for the future of intelligent headgear, making riding not only safer but also more convenient and connected.</p>
+    </section>
+
+    
+    <hr>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2024 Powered by HTML & CSS</p>
+    </footer>
+
+    <!-- Prism.js Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
+</body>
+</html>

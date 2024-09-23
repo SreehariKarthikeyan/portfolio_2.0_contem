@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Predicting IP Addresses in Cloud Computing: A Unified End-to-End Methodology</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #333333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0 20px;
+            max-width: 800px;
+            margin: auto;
+        }
+        h1, h2, h3 {
+            font-family: 'Lora', serif;
+            font-weight: 700;
+            color: #222222;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 60px;
+        }
+        h2 {
+            font-size: 1.8em;
+            margin-top: 40px;
+        }
+        h3 {
+            font-size: 1.4em;
+            margin-top: 30px;
+        }
+        p {
+            font-size: 1.1em;
+            margin-top: 20px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+        blockquote {
+            font-style: italic;
+            color: #666666;
+            border-left: 4px solid #dddddd;
+            padding-left: 16px;
+            margin-left: 0;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #dddddd;
+            margin: 40px 0;
+        }
+        .author {
+            font-size: 1em;
+            color: #555555;
+            margin-top: -10px;
+        }
+        .subtitle {
+            font-size: 1.2em;
+            color: #555555;
+            margin-top: 10px;
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #777777;
+            text-align: center;
+            margin-top: 5px;
+        }
+        code {
+            background-color: #f9f9f9;
+            padding: 2px 4px;
+            font-family: Consolas, monospace;
+            font-size: 0.95em;
+            color: #c7254e;
+        }
+        pre {
+            background-color: #f9f9f9;
+            padding: 10px;
+            overflow: auto;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: center;
+            padding: 8px;
+        }
+        th {
+            background-color: #f9f9f9;
+        }
+        .call-to-action {
+            font-size: 1.2em;
+            margin-top: 40px;
+        }
+        @media screen and (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            body {
+                padding: 0 10px;
+            }
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:700|Open+Sans:400,400i,700" rel="stylesheet">
+</head>
+<body>
+
+    <h1>Predicting IP Addresses in Cloud Computing: A Unified End-to-End Methodology</h1>
+    <p class="author">Sreehari Karthikeyan</p>
+    <p class="author"><em>May, 2020.</em></p>
+
+    <hr>
+
+    <p class="subtitle"><em>Welcome to the thrilling frontier of cloud and edge computing—where technology evolves at lightning speed, and security challenges are just as dynamic. Ever wondered if the way major cloud providers assign IP addresses could be a hidden vulnerability? Imagine cyber attackers predicting these IP allocations, turning them into open doors for devastating Denial of Service (DoS) attacks. Intrigued? This article takes you on an eye-opening journey through a cutting-edge methodology for predicting IP addresses, uncovering the cracks in current allocation practices, and presenting innovative strategies to fortify your network's defenses.</em></p>
+
+    <hr>
+
+    <img src="blogs_pictures\ip_address.png" alt="Cloud Computing Image">
+    
+    <hr>
+
+    <h2>Introduction</h2>
+
+    <p>Denial of Service (DoS) attacks aim to exhaust network resources, rendering services unavailable to legitimate users. One defense mechanism against such attacks is <strong>IP address randomization</strong>, which involves frequently changing the IP addresses of target hosts to increase the effort required by attackers to locate and compromise these systems.</p>
+
+    <p>However, the effectiveness of IP randomization depends on the unpredictability of the allocated IP addresses. Our research investigates whether IP addresses assigned by major cloud service providers are genuinely random or if they exhibit patterns that can be exploited by attackers.</p>
+
+    <p><strong>Key Questions:</strong></p>
+    <ul>
+        <li>Are IP address allocations by cloud providers sufficiently unpredictable?</li>
+        <li>Can attackers model and predict these allocations to target services effectively?</li>
+        <li>What methodologies can enhance the unpredictability and security of IP allocations?</li>
+    </ul>
+
+    <hr>
+
+    <h2>Proposed System</h2>
+
+    <p>Our proposed system consists of several modules designed to collect data, analyze IP allocation patterns, and predict future IP addresses. The system architecture is illustrated below:</p>
+
+    <img src="blogs_pictures\system_Architecture.png" alt="System Architecture">
+    <p class="image-caption">Figure 1: System Architecture</p>
+
+    <p>The key components are:</p>
+    <ul>
+        <li><strong>IP/Log Collection Module:</strong> Records the status of the current virtual machine and logs network access requests.</li>
+        <li><strong>Log Monitoring Module:</strong> Receives data from the IP/Log Collection Module and writes log data to the database every 5 minutes for comparison.</li>
+        <li><strong>User Account Comparison Module:</strong> Checks if the IP and login account match, flagging any anomalies immediately.</li>
+    </ul>
+
+    <p>The IP address is reserved for the user until the user releases it or destroys the virtual machine. Our system aims to predict these allocations by analyzing patterns in the data.</p>
+
+    <hr>
+
+    <h2>Modules</h2>
+
+    <h3>1. Exploratory Data Analysis (EDA)</h3>
+
+    <p>EDA involves dissecting the dataset to uncover patterns, anomalies, and relationships. We performed EDA to understand the distribution of IP addresses, traffic volumes, and identify potential outliers.</p>
+
+    <p><strong>Key Steps:</strong></p>
+    <ul>
+        <li>Data visualization to identify high outbound traffic sources.</li>
+        <li>Analyzing activity per hour to detect irregular behaviors.</li>
+        <li>Identifying IP addresses with unusual patterns.</li>
+    </ul>
+
+    <h3>2. Data Preprocessing</h3>
+
+    <p>Data preprocessing involves cleaning and transforming the dataset to prepare it for analysis. This includes handling missing values, converting data types, and creating new features.</p>
+
+    <p><strong>Sample Code Snippet:</strong></p>
+    <pre><code># Identifying internal IP addresses
+def is_internal(s):
+    return s.str.startswith(('12.', '13.', '14.'))
+
+df['src_int'] = is_internal(df['src'])
+df['dst_int'] = is_internal(df['dst'])
+df['ts'] = pd.to_datetime(df.ts, unit='ms')
+df['hour'] = df.ts.dt.hour.astype('uint8')
+df['minute'] = df.ts.dt.minute.astype('uint8')
+df['port'] = df['port'].astype('uint8')</code></pre>
+
+    <h3>3. Prediction Algorithm</h3>
+
+    <p>The prediction algorithm uses statistical modeling and neural networks to capture associations between online resources and IPv4 addresses. It learns vector representations for the online resources and IP addresses, enabling it to compute accurate predictions even for unseen data.</p>
+
+    <p><strong>Implementing the Prediction Algorithm:</strong></p>
+    <pre><code># Prepare features and target variable
+features = df[['hour', 'minute', 'port']]
+target = df['dst']
+
+# Train-test split
+from sklearn.model_selection import train_test_split
+X_train, X_test, y_train, y_test = train_test_split(features, target, test_size=0.2, random_state=42)
+
+# Train the model
+from sklearn.ensemble import RandomForestClassifier
+model = RandomForestClassifier()
+model.fit(X_train, y_train)</code></pre>
+
+    <h3>4. Attack Algorithm</h3>
+
+    <p>We simulate an attacker's strategy using our prediction model to generate a list of potential target IP addresses. The algorithm attempts to predict the next IP addresses allocated to the target network.</p>
+
+    <p><strong>Attack Algorithm Overview:</strong></p>
+    <pre><code>def attack_simulation(model, N):
+    # Generate predictions
+    predicted_prefixes = model.predict(features)
+    
+    # Initialize an empty list for successful hits
+    successful_hits = []
+    
+    # Iterate over predicted prefixes
+    for prefix in predicted_prefixes:
+        # Complete the IP address by brute-forcing the remaining bits
+        possible_ips = complete(prefix)
+        for ip in possible_ips:
+            if ip in target_network:
+                successful_hits.append(ip)
+                if len(successful_hits) == N:
+                    break
+        if len(successful_hits) == N:
+            break
+    return successful_hits</code></pre>
+
+    <h3>5. Attack Strategy</h3>
+
+    <p>The attacker clusters the dataset to establish the most probable transitions between IP addresses. This clustering approach improves the accuracy of predictions by capturing the patterns in IP allocation.</p>
+
+    <hr>
+
+    <h2>Results & Discussion</h2>
+
+    <h3>Key Findings</h3>
+
+    <p>The attack simulations demonstrated that even simple models could predict IP allocations with high accuracy. The hit rate of correct predictions was above 90% in most iterations.</p>
+
+    <p><strong>Visualization of Outbound Traffic per Source:</strong></p>
+
+    <img src="blogs_pictures\outbound_traffic_per_source.png" alt="Outbound Traffic Distribution">
+    <p class="image-caption">Figure 2: Distribution of Outbound Traffic per Source</p>
+
+    <p><strong>Max Z-Score Values per Port:</strong></p>
+
+    <img src="blogs_pictures\z_score_value_plot.png" alt="Max Z-Score per Port">
+    <p class="image-caption">Figure 3: Top Z-Score Values per Port</p>
+
+    <h3>Code Highlights</h3>
+
+    <p><strong>Identifying High Outbound Traffic Sources:</strong></p>
+    <pre><code># Identifying IPs with high outbound traffic
+src_bytes_out = df[df['src_int'] & ~df['dst_int']] \
+    .groupby('src') \
+    .bytes.sum() \
+    .sort_values(ascending=False)
+
+# Plotting the top 10 sources
+src_bytes_out.head(10).sort_values().plot.barh(title='Top 10 High Outbound Traffic Sources')</code></pre>
+
+	<img src="blogs_pictures\top_10_high_traffic.png" alt="Max Z-Score per Port">
+    <p class="image-caption">Figure : Top 10 High Outb	ound Traffic Sources</p>
+    <p><strong>Analyzing Activity per Hour:</strong></p>
+    <pre><code># Plotting activity per hour
+df.groupby('hour').size() \
+    .plot.bar(title='Activity per Hour') \
+    .set_ylabel('Connection Counts')</code></pre>
+	
+	
+	<img src="blogs_pictures\activity_per_hour.png" alt="Max Z-Score per Port">
+    <p class="image-caption">Figure : Activity Per Hour</p>
+
+    <p><strong>Clustering Ports Based on Activity:</strong></p>
+    <pre><code># Clustering ports
+port_upper_bounds = []
+for p in internal_ports:
+    internal_edges = internal_edges_all \
+        .pipe(lambda x: x[x['port'] == p]) \
+        .drop_duplicates(['src', 'dst'])
+    
+    # Compute max clique size
+    # ... (code omitted for brevity)
+
+port_upper_bounds.sort(key=lambda x: -x[-1])</code></pre>
+
+    <hr>
+
+    <h2>Limitations</h2>
+
+    <p>Our study has some limitations:</p>
+    <ul>
+        <li>The dataset represents a limited address space used in cloud computing platforms.</li>
+        <li>Only one data collection method was used; incorporating multiple methods could reveal more patterns.</li>
+        <li>The behavior of IP allocation functions may change over time, requiring continuous and adaptive learning.</li>
+    </ul>
+
+    <hr>
+
+    <h2>Conclusion</h2>
+
+    <p>The possibility of predicting IP addresses allocated by cloud computing platforms raises concerns for moving target defenses that rely on IP randomization. Our methodology demonstrates that attackers can reliably predict IP allocations, potentially undermining these defenses.</p>
+
+    <p>To enhance security, cloud providers should increase the entropy in IP address allocations or consider adopting IPv6 addresses, which offer a larger address space. Further research is needed to evaluate the effectiveness of IPv6 and to develop adaptive defense mechanisms.</p>
+
+    <hr>
+
+</body>
+</html>

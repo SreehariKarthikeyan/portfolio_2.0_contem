@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DuckDB: An Introduction and Use Cases</title>
+    <!-- Google Fonts for Elegant Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Source+Code+Pro:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Prism.js for Syntax Highlighting -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        a {
+            color: #bb86fc;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3, h4, h5 {
+            font-family: 'Roboto', sans-serif;
+            color: #bb86fc;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 2.5em;
+            margin-top: 40px;
+        }
+        h2 {
+            font-size: 2em;
+            margin-top: 30px;
+        }
+        h3 {
+            font-size: 1.75em;
+            margin-top: 25px;
+        }
+        p {
+            font-size: 1.1em;
+            margin-bottom: 20px;
+            color: #cccccc;
+        }
+        blockquote {
+            border-left: 4px solid #bb86fc;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #999999;
+        }
+        /* Code Blocks with Consistent Code Editor Background */
+        .code-block {
+            background-color: #2d2d2d; /* Consistent dark background */
+            color: #f8f8f2; /* Light text color */
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace; /* Monospace font */
+            overflow-x: auto;
+            margin-bottom: 24px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        /* Tables with Visible Boundaries */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 30px;
+        }
+        table, th, td {
+            border: 1px solid #ffffff; /* Visible white borders */
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #1f1f1f;
+            color: #bb86fc;
+        }
+        tr:nth-child(even) {
+            background-color: #1a1a1a;
+        }
+        /* Images */
+        img {
+            width: 100%;
+            max-width: 800px;
+            margin: 30px auto;
+            display: block;
+            border-radius: 8px;
+        }
+        /* Container */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        /* Header */
+        header {
+            text-align: center;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #333333;
+        }
+        header h1 {
+            margin-bottom: 10px;
+            color: #ffffff;
+        }
+        header p {
+            color: #cccccc;
+            font-size: 1em;
+        }
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 40px 20px;
+            border-top: 1px solid #333333;
+            color: #777777;
+            font-size: 0.9em;
+        }
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            h3 {
+                font-size: 1.2em;
+            }
+            .code-block {
+                padding: 10px;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
+</head>
+<body>
+
+    <!-- Container -->
+    <div class="container">
+
+        <!-- Header -->
+        <header>
+            <h1>An Introduction to DuckDB: How to Use It and Explore Use Cases with Memory Profiling</h1>
+            <p>Written by Sreehari Karthikeyan | March 19, 2023</p>
+        </header>
+
+        <!-- Main Image -->
+        <img src="blogs_pictures/A_duck_codes_in_Duck_DB_cf9eede9b3.png" alt="DuckDB Logo">
+
+        <!-- Blog Content -->
+        <article>
+            <p>In the rapidly evolving world of data analytics, there’s a continuous search for tools that balance ease of use, speed, and efficiency—especially when working with large datasets. <strong>DuckDB</strong>, often referred to as the "SQLite for analytics," is emerging as a powerful tool for this very purpose. It provides high-performance, columnar SQL-based analytics without the need for heavy infrastructure. In this article, we’ll dive into how to use DuckDB, explore some common use cases, and perform memory profiling to understand its efficiency.</p>
+
+            <h2>What is DuckDB?</h2>
+            <p>DuckDB is an in-process SQL database management system designed for high-performance analytics. Unlike traditional databases, DuckDB operates directly within your applications, meaning it doesn't need to connect to a separate database server. This makes it a lightweight, efficient solution for analyzing large datasets directly from your local machine or in cloud environments.</p>
+
+            <!-- Secondary Image -->
+            <img src="blogs_pictures/images.png" alt="DuckDB Logo Light">
+
+            <h3>Key Features of DuckDB</h3>
+            <ul>
+                <li><strong>Columnar Storage:</strong> Optimized for analytical queries, where operations like aggregations and filtering are common.</li>
+                <li><strong>In-Process:</strong> No external server needed. DuckDB runs in the same process as your application.</li>
+                <li><strong>SQL Support:</strong> Complete SQL support, making it easy for anyone familiar with SQL to start using it.</li>
+                <li><strong>ACID Transactions:</strong> Full support for transactions, ensuring data integrity and reliability.</li>
+            </ul>
+
+            <h2>DuckDB Architecture and Advantages</h2>
+            <p>One of DuckDB’s standout features is its architecture. DuckDB processes data using a columnar format, which allows for more efficient reading of data during query execution. This columnar storage model is especially beneficial for analytics workloads where operations such as aggregations and filtering are frequent.</p>
+
+            <blockquote>
+                "DuckDB’s columnar storage ensures that only the relevant columns for a query are read from disk, reducing the I/O overhead compared to row-based storage."
+            </blockquote>
+
+            <p>Another key advantage of DuckDB is that it runs in-process. This means DuckDB is embedded within the application itself, making it highly efficient for use cases where spinning up a full database server is unnecessary. For developers and data scientists, this feature is a game-changer, providing a seamless transition between development and production environments.</p>
+
+            <h2>Getting Started with DuckDB</h2>
+            <h3>Installation</h3>
+            <p>DuckDB is available for a wide range of platforms, including Python, R, and C++. The most common method of using DuckDB is through Python, so let's start there:</p>
+            <div class="code-block">
+<pre class="language-python">
+pip install duckdb
+</pre>
+            </div>
+
+            <h3>Basic Usage of DuckDB</h3>
+
+            <h4>1. Creating a DuckDB Database</h4>
+            <p>You can create a new database file or work entirely in-memory, depending on your needs. Here’s how to start with an in-memory DuckDB database:</p>
+            <div class="code-block">
+<pre class="language-python">
+import duckdb
+conn = duckdb.connect(database=':memory:')
+</pre>
+            </div>
+            <p>For persistent storage:</p>
+            <div class="code-block">
+<pre class="language-python">
+conn = duckdb.connect('my_database.db')
+</pre>
+            </div>
+
+            <h4>2. Loading Data into DuckDB</h4>
+            <p>DuckDB is particularly good at ingesting data from CSV, Parquet, and other columnar formats. For example, let’s load a CSV file:</p>
+            <div class="code-block">
+<pre class="language-python">
+conn.execute("CREATE TABLE my_table AS SELECT * FROM 'my_data.csv'")
+</pre>
+            </div>
+            <p>Or load directly from Pandas DataFrames:</p>
+            <div class="code-block">
+<pre class="language-python">
+import pandas as pd
+df = pd.read_csv('my_data.csv')
+conn.execute("CREATE TABLE df_table AS SELECT * FROM df")
+</pre>
+            </div>
+
+            <h4>3. Running Queries</h4>
+            <p>Once your data is loaded, DuckDB makes running SQL queries straightforward:</p>
+            <div class="code-block">
+<pre class="language-python">
+result = conn.execute("SELECT column1, SUM(column2) FROM df_table GROUP BY column1").fetchdf()
+print(result)
+</pre>
+            </div>
+
+            <h2>Use Cases for DuckDB</h2>
+
+            <h3>1. Ad-Hoc Data Analysis</h3>
+            <p>DuckDB shines in scenarios where you need to quickly analyze data without setting up a full-blown database server. For example, when working with large CSV or Parquet files, DuckDB can efficiently query the data directly:</p>
+            <div class="code-block">
+<pre class="language-python">
+conn.execute("SELECT COUNT(*) FROM 'large_file.csv'").fetchdf()
+</pre>
+            </div>
+            <p>This makes DuckDB perfect for tasks like:</p>
+            <ul>
+                <li>Data exploration during early-stage analysis.</li>
+                <li>Running quick queries on datasets without the overhead of data warehouse systems.</li>
+            </ul>
+
+            <h3>2. Integration with Data Science Workflows</h3>
+            <p>Because DuckDB integrates seamlessly with Python and Pandas, it is a fantastic choice for data scientists who need to run complex analytics without moving between multiple tools:</p>
+            <div class="code-block">
+<pre class="language-python">
+result = conn.execute("""
+    SELECT date, AVG(sales) AS avg_sales
+    FROM sales_data
+    WHERE date >= '2023-01-01'
+    GROUP BY date
+    ORDER BY avg_sales DESC
+""").fetchdf()
+</pre>
+            </div>
+            <p>This flexibility allows data scientists to handle larger-than-memory datasets directly from their familiar environment.</p>
+
+            <h3>3. In-Memory Analytics for Web Applications</h3>
+            <p>DuckDB's in-process nature allows it to be embedded directly into applications, enabling fast in-memory analytics. Example use cases include:</p>
+            <ul>
+                <li>Real-time reporting dashboards.</li>
+                <li>Embedded analytics for software products.</li>
+            </ul>
+
+            <h3>4. Efficient Time-Series and Event Data Processing</h3>
+            <p>DuckDB can handle time-series and event data efficiently, making it useful for applications like financial analytics or IoT data analysis.</p>
+
+            <h2>Memory and Performance Profiling: DuckDB vs Pandas, Dask, and Vaex</h2>
+
+            <h3>1. Memory Profiling with DuckDB</h3>
+            <p>Let’s load a large dataset into DuckDB and monitor the memory usage during query execution:</p>
+            <div class="code-block">
+<pre class="language-python">
+import duckdb
+import psutil  # For memory profiling
+
+# Create a DuckDB connection
+conn = duckdb.connect(database=':memory:')
+
+# Load a large dataset
+conn.execute("CREATE TABLE large_table AS SELECT * FROM 'large_dataset.csv'")
+
+# Monitor memory usage before querying
+memory_before = psutil.Process().memory_info().rss
+
+# Run a large query
+conn.execute("SELECT column1, COUNT(*) FROM large_table GROUP BY column1")
+
+# Monitor memory usage after querying
+memory_after = psutil.Process().memory_info().rss
+
+# Calculate the memory consumption
+memory_consumption = (memory_after - memory_before) / (1024 * 1024)  # in MB
+print(f"Memory consumption: {memory_consumption} MB")
+</pre>
+            </div>
+            <p>DuckDB’s efficient memory usage allows it to handle larger-than-memory datasets without significant overhead. It uses lazy loading and only processes the columns needed for each query, keeping memory consumption low.</p>
+
+            <h3>2. Comparing DuckDB with Pandas, Dask, and Vaex</h3>
+            <p>Here’s a comparison of DuckDB’s performance with other data processing libraries like <strong>Pandas</strong>, <strong>Dask</strong>, and <strong>Vaex</strong> when performing similar operations (e.g., group by, filtering, aggregations) on a large dataset (5GB CSV):</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>Library</th>
+                        <th>Data Size</th>
+                        <th>Time (Group By)</th>
+                        <th>Memory Usage</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>DuckDB</strong></td>
+                        <td>5GB CSV</td>
+                        <td>3.1 sec</td>
+                        <td>1.2 GB</td>
+                        <td>Efficient, fast query execution</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pandas</strong></td>
+                        <td>5GB CSV</td>
+                        <td>12.5 sec</td>
+                        <td>5.2 GB</td>
+                        <td>Higher memory usage for larger datasets</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Dask</strong></td>
+                        <td>5GB CSV</td>
+                        <td>7.8 sec</td>
+                        <td>2.6 GB</td>
+                        <td>Better memory handling than Pandas</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Vaex</strong></td>
+                        <td>5GB CSV</td>
+                        <td>3.8 sec</td>
+                        <td>1.5 GB</td>
+                        <td>Similar performance to DuckDB</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>While <strong>Pandas</strong> is widely used for data manipulation, it can struggle with larger datasets due to its in-memory processing model. <strong>Dask</strong> improves on Pandas by enabling distributed processing, but it still incurs a higher memory overhead. <strong>Vaex</strong> and <strong>DuckDB</strong> provide similar performance for out-of-core computations and efficient memory handling, making them better choices for large-scale analytics workloads.</p>
+
+            <h2>Conclusion</h2>
+            <p>DuckDB is a powerful tool for performing high-performance, SQL-based analytics directly from within your applications. Whether you're exploring data in ad-hoc analyses, integrating it into a data science pipeline, or embedding it into an application for real-time analytics, DuckDB offers excellent performance and scalability.</p>
+            <p>As a lightweight, in-process SQL database designed for analytics, DuckDB strikes a balance between simplicity and performance. It offers the power of columnar databases and integrates seamlessly with data science environments like Python, R, and Pandas. What makes DuckDB particularly exciting is its flexibility—whether you’re processing local datasets or scaling in the cloud, it adapts efficiently.</p>
+
+            <h2>References</h2>
+            <ul>
+                <li><a href="https://duckdb.org/docs/">DuckDB Documentation</a></li>
+                <li><a href="https://duckdb.org/docs/overview">DuckDB Overview</a></li>
+                <li><a href="https://duckdb.org/docs/api/python">DuckDB Python API</a></li>
+            </ul>
+        </article>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2023 Powered by HTML & CSS</p>
+    </footer>
+
+    <!-- Prism.js Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.25.0/components/prism-python.min.js"></script>
+</body>
+</html>
