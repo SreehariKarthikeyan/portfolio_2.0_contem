@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>College Chatbot</title>
+    <style>
+        :root {
+            --background-color: #121212;
+            --text-color: #f4f4f4;
+            --container-bg: #1e1e1e;
+            --secondary-text-color: #cccccc;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: var(--background-color);
+            color: var(--text-color);
+            overflow: hidden;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            background: var(--container-bg);
+            border-radius: 12px;
+            max-width: 400px;
+            width: 90%;
+            transform: scale(0.8);
+            animation: scaleIn 1s ease-in-out forwards;
+            transition: background 0.3s;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 28px;
+            color: var(--text-color);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: var(--secondary-text-color);
+            animation: fadeIn 1.8s ease-in-out;
+        }
+
+        iframe {
+            border: none;
+            margin-top: 10px;
+            animation: slideIn 2s ease-in-out;
+        }
+
+        button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background: #444;
+            color: #f4f4f4;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        button:hover {
+            background: #f4f4f4;
+            color: #121212;
+        }
+
+        @keyframes scaleIn {
+            0% {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideIn {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    </style>
+    <script>
+        function toggleTheme() {
+            const root = document.documentElement;
+            if (root.style.getPropertyValue('--background-color') === '#121212') {
+                root.style.setProperty('--background-color', '#f4f4f4');
+                root.style.setProperty('--text-color', '#121212');
+                root.style.setProperty('--container-bg', '#ffffff');
+                root.style.setProperty('--secondary-text-color', '#555555');
+            } else {
+                root.style.setProperty('--background-color', '#121212');
+                root.style.setProperty('--text-color', '#f4f4f4');
+                root.style.setProperty('--container-bg', '#1e1e1e');
+                root.style.setProperty('--secondary-text-color', '#cccccc');
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="toggleTheme()">Toggle Theme</button>
+    <div class="container">
+        <h1>Chat Assistant</h1>
+        <p>Interact with the assistant below by speaking into your microphone.</p>
+        <iframe width="350" height="430" allow="microphone;" src="https://console.dialogflow.com/api-client/demo/embedded/1ea1aaba-1f20-45cc-af48-4d84d739eb24"></iframe>
+    </div>
+</body>
+</html>
