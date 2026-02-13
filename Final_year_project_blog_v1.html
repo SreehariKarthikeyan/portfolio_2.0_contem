@@ -136,7 +136,7 @@
 
     <hr>
 
-    <img src="blogs_pictures\ip_address.png" alt="Cloud Computing Image">
+    <img src="blogs_pictures/ip_address.png" alt="Cloud Computing Image">
     
     <hr>
 
@@ -159,7 +159,7 @@
 
     <p>Our proposed system consists of several modules designed to collect data, analyze IP allocation patterns, and predict future IP addresses. The system architecture is illustrated below:</p>
 
-    <img src="blogs_pictures\system_Architecture.png" alt="System Architecture">
+    <img src="blogs_pictures/system_Architecture.png" alt="System Architecture">
     <p class="image-caption">Figure 1: System Architecture</p>
 
     <p>The key components are:</p>
@@ -259,12 +259,12 @@ model.fit(X_train, y_train)</code></pre>
 
     <p><strong>Visualization of Outbound Traffic per Source:</strong></p>
 
-    <img src="blogs_pictures\outbound_traffic_per_source.png" alt="Outbound Traffic Distribution">
+    <img src="blogs_pictures/outbound_traffic_per_source.png" alt="Outbound Traffic Distribution">
     <p class="image-caption">Figure 2: Distribution of Outbound Traffic per Source</p>
 
     <p><strong>Max Z-Score Values per Port:</strong></p>
 
-    <img src="blogs_pictures\z_score_value_plot.png" alt="Max Z-Score per Port">
+    <img src="blogs_pictures/z_score_value_plot.png" alt="Max Z-Score per Port">
     <p class="image-caption">Figure 3: Top Z-Score Values per Port</p>
 
     <h3>Code Highlights</h3>
@@ -279,7 +279,7 @@ src_bytes_out = df[df['src_int'] & ~df['dst_int']] \
 # Plotting the top 10 sources
 src_bytes_out.head(10).sort_values().plot.barh(title='Top 10 High Outbound Traffic Sources')</code></pre>
 
-	<img src="blogs_pictures\top_10_high_traffic.png" alt="Max Z-Score per Port">
+	<img src="blogs_pictures/top_10_high_traffic.png" alt="Max Z-Score per Port">
     <p class="image-caption">Figure : Top 10 High Outb	ound Traffic Sources</p>
     <p><strong>Analyzing Activity per Hour:</strong></p>
     <pre><code># Plotting activity per hour
@@ -288,7 +288,7 @@ df.groupby('hour').size() \
     .set_ylabel('Connection Counts')</code></pre>
 	
 	
-	<img src="blogs_pictures\activity_per_hour.png" alt="Max Z-Score per Port">
+	<img src="blogs_pictures/activity_per_hour.png" alt="Max Z-Score per Port">
     <p class="image-caption">Figure : Activity Per Hour</p>
 
     <p><strong>Clustering Ports Based on Activity:</strong></p>
