@@ -856,8 +856,8 @@
     const blogCards = document.querySelectorAll('.blog-card[data-href]');
     blogCards.forEach(card => {
       card.addEventListener('click', function(e) {
-        // Don't navigate if user is clicking on a link inside the card
-        if (e.target.tagName !== 'A') {
+        // Don't navigate if user is clicking on a link or any element inside a link
+        if (!e.target.closest('a')) {
           window.location.href = this.getAttribute('data-href');
         }
       });
