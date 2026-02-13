@@ -280,7 +280,7 @@ src_bytes_out = df[df['src_int'] & ~df['dst_int']] \
 src_bytes_out.head(10).sort_values().plot.barh(title='Top 10 High Outbound Traffic Sources')</code></pre>
 
 	<img src="blogs_pictures/top_10_high_traffic.png" alt="Max Z-Score per Port">
-    <p class="image-caption">Figure : Top 10 High Outb	ound Traffic Sources</p>
+    <p class="image-caption">Figure : Top 10 High Outbound Traffic Sources</p>
     <p><strong>Analyzing Activity per Hour:</strong></p>
     <pre><code># Plotting activity per hour
 df.groupby('hour').size() \
