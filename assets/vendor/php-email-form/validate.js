@@ -1,6 +1,6 @@
 /**
 * PHP Email Form Validation - v3.6
-
+* Modified to work with Netlify Forms
 */
 (function () {
   "use strict";
@@ -9,9 +9,21 @@
 
   forms.forEach( function(e) {
     e.addEventListener('submit', function(event) {
-      event.preventDefault();
-
       let thisForm = this;
+      
+      // Check if this is a Netlify form
+      if (thisForm.hasAttribute('netlify')) {
+        // Show loading indicator
+        thisForm.querySelector('.loading').classList.add('d-block');
+        thisForm.querySelector('.error-message').classList.remove('d-block');
+        thisForm.querySelector('.sent-message').classList.remove('d-block');
+        
+        // Let the form submit naturally to Netlify
+        return true;
+      }
+
+      // Original PHP form handling for non-Netlify forms
+      event.preventDefault();
 
       let action = thisForm.getAttribute('action');
       let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
