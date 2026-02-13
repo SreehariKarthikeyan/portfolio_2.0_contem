@@ -12,18 +12,35 @@
       let thisForm = this;
       
       // Check if this is a Netlify form
-      if (thisForm.hasAttribute('netlify')) {
+      if (thisForm.hasAttribute('netlify') || thisForm.hasAttribute('data-netlify')) {
+        event.preventDefault();
         // Show loading indicator
         thisForm.querySelector('.loading').classList.add('d-block');
         thisForm.querySelector('.error-message').classList.remove('d-block');
         thisForm.querySelector('.sent-message').classList.remove('d-block');
-        
-        // Let the form submit naturally to Netlify
-        return true;
-      }
 
-      // Original PHP form handling for non-Netlify forms
-      event.preventDefault();
+        let formData = new FormData(thisForm);
+
+        fetch('/', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          body: new URLSearchParams(formData).toString()
+        })
+        .then(response => {
+          if (response.ok) {
+            thisForm.querySelector('.loading').classList.remove('d-block');
+            thisForm.querySelector('.sent-message').classList.add('d-block');
+            thisForm.reset();
+          } else {
+            throw new Error('Form submission failed: ' + response.statusText);
+          }
+        })
+        .catch(error => {
+          displayError(thisForm, error);
+        });
+
+        return;
+      }
 
       let action = thisForm.getAttribute('action');
       let recaptcha = thisForm.getAttribute('data-recaptcha-site-key');
