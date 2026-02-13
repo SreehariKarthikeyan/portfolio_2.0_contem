@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Technical blog featuring data engineering insights, machine learning projects, private equity analysis, and database tutorials by Sreehari Karthikeyan.">
+  <meta name="keywords" content="data engineering blog, machine learning, DuckDB, private equity analysis, cloud computing, technical articles">
   <title>Blogs Home Page</title>
   <style>
     /* Base Style */
@@ -189,8 +191,8 @@
       
 
       <!-- Blog Card 2 -->
-      <div class="blog-card" onclick="window.location.href='smart_assistive_gear_blog_v1.html'">
-        <img src="blogs_pictures/sddefault.jpg" alt="Blog 2 Image">
+      <div class="blog-card" data-href="smart_assistive_gear_blog_v1.html">
+        <img src="blogs_pictures/sddefault.jpg" alt="Blog 2 Image" loading="lazy">
         <div class="content">
           <h3>Smart and Assistive Riding Gear</h3>
           <p class="author">July 20, 2018</p>
@@ -199,8 +201,8 @@
         </div>
       </div>
 	   <!-- Blog Card 4 -->
-      <div class="blog-card" onclick="window.location.href='Final_year_project_blog_v1.html'">
-        <img src="blogs_pictures/ip_address.png" alt="Blog 4 Image">
+      <div class="blog-card" data-href="Final_year_project_blog_v1.html">
+        <img src="blogs_pictures/ip_address.png" alt="Blog 4 Image" loading="lazy">
         <div class="content">
           <h3>IP Address Prediction</h3>
           <p class="author">May 16, 2020</p>
@@ -209,8 +211,8 @@
         </div>
       </div>
 	  <!-- Blog Card 1 -->
-      <div class="blog-card" onclick="window.location.href='PE_blog_v1.html'">
-        <img src="blogs_pictures/PE_cover_image.png" alt="Blog 1 Image">
+      <div class="blog-card" data-href="PE_blog_v1.html">
+        <img src="blogs_pictures/PE_cover_image.png" alt="Blog 1 Image" loading="lazy">
         <div class="content">
           <h3>Impact of Private Equity Ownership</h3>
           <p class="author">September 22, 2024</p>
@@ -219,8 +221,8 @@
         </div>
       </div>
       <!-- Blog Card 3 -->
-      <div class="blog-card" onclick="window.location.href='duckDB_plural_theme_v1.html'">
-        <img src="blogs_pictures/ducddb_prof.png" alt="Blog 3 Image">
+      <div class="blog-card" data-href="duckDB_plural_theme_v1.html">
+        <img src="blogs_pictures/ducddb_prof.png" alt="Blog 3 Image" loading="lazy">
         <div class="content">
           <h3>DuckDb: Introduction & Usecases</h3>
           <p class="author">March 18, 2023</p>
@@ -237,6 +239,21 @@
   <div class="footer">
     &copy; 2024 My Blog. All rights reserved.
   </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Add click handlers for blog cards
+      const blogCards = document.querySelectorAll('.blog-card[data-href]');
+      blogCards.forEach(card => {
+        card.addEventListener('click', function(e) {
+          // Don't navigate if user is clicking on a link or any element inside a link
+          if (!e.target.closest('a')) {
+            window.location.href = this.getAttribute('data-href');
+          }
+        });
+      });
+    });
+  </script>
 
 </body>
 </html>
