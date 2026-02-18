@@ -50,10 +50,13 @@
   ======================================================== -->
 
  <style>
-    .blog-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      grid-gap: 30px;
+    .blog-slider {
+      overflow: hidden;
+      padding-bottom: 40px;
+    }
+
+    .blog-slider .swiper-slide {
+      width: 300px;
     }
 
     /* Blog Card */
@@ -364,60 +367,72 @@
           <h2>BLOGS</h2>
           <p>My technical blog explores quant development and data insights, offering fresh perspectives and practical tips. Dive in for a journey through the cutting edge of finance and tech.</p>
         </div>
-        <div class="blog-grid">
-      
+        <div class="blog-slider swiper" data-aos="fade-up" data-aos-delay="100">
+          <div class="swiper-wrapper">
 
-          <!-- Blog Card 2 -->
-          <div class="blog-card" data-href="smart_assistive_gear_blog_v1.html">
-            <img src="blogs_pictures/sddefault.jpg" alt="Blog 2 Image" loading="lazy">
-            <div class="content">
-              <h3>Smart and Assistive Riding Gear</h3>
-              <p class="author">July 20, 2018</p>
-              <p>A Smart Helmet with Augmented Reality and Accident Detection.</p>
-              <a href="smart_assistive_gear_blog_v1.html" class="read-more">Read More</a>
+            <!-- Blog Card 2 -->
+            <div class="swiper-slide">
+              <div class="blog-card" data-href="smart_assistive_gear_blog_v1.html">
+                <img src="blogs_pictures/sddefault.jpg" alt="Blog 2 Image" loading="lazy">
+                <div class="content">
+                  <h3>Smart and Assistive Riding Gear</h3>
+                  <p class="author">July 20, 2018</p>
+                  <p>A Smart Helmet with Augmented Reality and Accident Detection.</p>
+                  <a href="smart_assistive_gear_blog_v1.html" class="read-more">Read More</a>
+                </div>
+              </div>
             </div>
-          </div>
-         <!-- Blog Card 4 -->
-          <div class="blog-card" data-href="Final_year_project_blog_v1.html">
-            <img src="blogs_pictures/ip_address.png" alt="Blog 4 Image" loading="lazy">
-            <div class="content">
-              <h3>IP Address Prediction</h3>
-              <p class="author">May 16, 2020</p>
-              <p>Predicting IP Addresses in Cloud Computing: A Unified End-to-End Methodology.</p>
-              <a href="Final_year_project_blog_v1.html" class="read-more">Read More</a>
+            <!-- Blog Card 4 -->
+            <div class="swiper-slide">
+              <div class="blog-card" data-href="Final_year_project_blog_v1.html">
+                <img src="blogs_pictures/ip_address.png" alt="Blog 4 Image" loading="lazy">
+                <div class="content">
+                  <h3>IP Address Prediction</h3>
+                  <p class="author">May 16, 2020</p>
+                  <p>Predicting IP Addresses in Cloud Computing: A Unified End-to-End Methodology.</p>
+                  <a href="Final_year_project_blog_v1.html" class="read-more">Read More</a>
+                </div>
+              </div>
             </div>
-          </div>
-        <!-- Blog Card 1 -->
-          <div class="blog-card" data-href="PE_blog_v1.html">
-            <img src="blogs_pictures/PE_cover_image.png" alt="Blog 1 Image" loading="lazy">
-            <div class="content">
-              <h3>Impact of Private Equity Ownership</h3>
-              <p class="author">September 22, 2024</p>
-              <p>Impact of  PE ownership on firms: backed by data-driven insights and predictive modeling.</p>
-              <a href="PE_blog_v1.html" class="read-more">Read More</a>
+            <!-- Blog Card 1 -->
+            <div class="swiper-slide">
+              <div class="blog-card" data-href="PE_blog_v1.html">
+                <img src="blogs_pictures/PE_cover_image.png" alt="Blog 1 Image" loading="lazy">
+                <div class="content">
+                  <h3>Impact of Private Equity Ownership</h3>
+                  <p class="author">September 22, 2024</p>
+                  <p>Impact of  PE ownership on firms: backed by data-driven insights and predictive modeling.</p>
+                  <a href="PE_blog_v1.html" class="read-more">Read More</a>
+                </div>
+              </div>
             </div>
-          </div>
-          <!-- Blog Card 3 -->
-          <div class="blog-card" data-href="duckDB_plural_theme_v1.html">
-            <img src="blogs_pictures/ducddb_prof.png" alt="Blog 3 Image" loading="lazy">
-            <div class="content">
-              <h3>DuckDb: Introduction & Usecases</h3>
-              <p class="author">March 18, 2023</p>
-              <p>How to Use It and Explore Use Cases with Memory Profiling.</p>
-              <a href="duckDB_plural_theme_v1.html" class="read-more">Read More</a>
+            <!-- Blog Card 3 -->
+            <div class="swiper-slide">
+              <div class="blog-card" data-href="duckDB_plural_theme_v1.html">
+                <img src="blogs_pictures/ducddb_prof.png" alt="Blog 3 Image" loading="lazy">
+                <div class="content">
+                  <h3>DuckDb: Introduction & Usecases</h3>
+                  <p class="author">March 18, 2023</p>
+                  <p>How to Use It and Explore Use Cases with Memory Profiling.</p>
+                  <a href="duckDB_plural_theme_v1.html" class="read-more">Read More</a>
+                </div>
+              </div>
             </div>
-          </div>
-          <!-- Blog Card 5 - Docling -->
-          <div class="blog-card" data-href="blog_docling_document_parsing.html">
-            <img src="blogs_pictures/docling_cover.svg" alt="Docling Document Parsing Blog" loading="lazy">
-            <div class="content">
-              <h3>Docling: AI-Powered Document Parsing</h3>
-              <p class="author">February 2025</p>
-              <p>A deep dive into IBM's open-source library for intelligent document extraction and RAG integration.</p>
-              <a href="blog_docling_document_parsing.html" class="read-more">Read More</a>
+            <!-- Blog Card 5 - Docling -->
+            <div class="swiper-slide">
+              <div class="blog-card" data-href="blog_docling_document_parsing.html">
+                <img src="blogs_pictures/docling_cover.svg" alt="Docling Document Parsing Blog" loading="lazy">
+                <div class="content">
+                  <h3>Docling: AI-Powered Document Parsing</h3>
+                  <p class="author">February 2025</p>
+                  <p>A deep dive into IBM's open-source library for intelligent document extraction and RAG integration.</p>
+                  <a href="blog_docling_document_parsing.html" class="read-more">Read More</a>
+                </div>
+              </div>
             </div>
-          </div>
 
+          </div>
+          <div class="swiper-pagination blog-pagination"></div>
         </div>
         
 

@@ -251,6 +251,25 @@
   });
 
   /**
+   * Blog slider
+   */
+  new Swiper('.blog-slider', {
+    speed: 600,
+    loop: true,
+    autoplay: {
+      delay: 5000,
+      disableOnInteraction: false
+    },
+    slidesPerView: 'auto',
+    spaceBetween: 30,
+    pagination: {
+      el: '.blog-pagination',
+      type: 'bullets',
+      clickable: true
+    }
+  });
+
+  /**
    * Animation on scroll
    */
   window.addEventListener('load', () => {
