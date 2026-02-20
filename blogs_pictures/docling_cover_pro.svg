@@ -1,0 +1,138 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 450">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f0f23"/>
+      <stop offset="100%" style="stop-color:#1a1a3e"/>
+    </linearGradient>
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#667eea"/>
+      <stop offset="100%" style="stop-color:#f093fb"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e1e3f"/>
+      <stop offset="100%" style="stop-color:#252550"/>
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="shadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="rgba(102,126,234,0.3)"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="900" height="450" fill="url(#bgGrad)"/>
+
+  <!-- Subtle grid pattern -->
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.03)" stroke-width="1"/>
+    </pattern>
+  </defs>
+  <rect width="900" height="450" fill="url(#grid)"/>
+
+  <!-- Glowing accent line at top -->
+  <rect x="0" y="0" width="900" height="3" fill="url(#accentGrad)"/>
+
+  <!-- LEFT PANEL: Input Document -->
+  <rect x="60" y="90" width="160" height="210" rx="12" fill="url(#cardGrad)" stroke="rgba(102,126,234,0.4)" stroke-width="1.5" filter="url(#shadow)"/>
+  <!-- Document header -->
+  <rect x="60" y="90" width="160" height="36" rx="12" fill="rgba(102,126,234,0.2)"/>
+  <rect x="60" y="114" width="160" height="12" fill="rgba(102,126,234,0.2)"/>
+  <!-- Document icon in header -->
+  <rect x="76" y="99" width="14" height="18" rx="2" fill="rgba(255,255,255,0.6)"/>
+  <path d="M 82 103 L 84 101 L 90 101 L 90 117 L 76 117 L 76 103 Z" fill="none"/>
+  <rect x="80" y="107" width="10" height="2" rx="1" fill="rgba(255,255,255,0.4)"/>
+  <rect x="80" y="111" width="8" height="2" rx="1" fill="rgba(255,255,255,0.3)"/>
+  <text x="98" y="112" fill="rgba(255,255,255,0.7)" font-family="'Inter', Arial, sans-serif" font-size="10" font-weight="600">PDF / DOCX</text>
+  <!-- Document content lines -->
+  <rect x="78" y="142" width="120" height="6" rx="3" fill="rgba(255,255,255,0.2)"/>
+  <rect x="78" y="156" width="96" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+  <rect x="78" y="170" width="110" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+  <!-- Table inside doc -->
+  <rect x="78" y="186" width="124" height="56" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
+  <line x1="78" y1="200" x2="202" y2="200" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <line x1="78" y1="214" x2="202" y2="214" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <line x1="78" y1="228" x2="202" y2="228" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <line x1="120" y1="186" x2="120" y2="242" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <line x1="161" y1="186" x2="161" y2="242" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+  <!-- More text lines -->
+  <rect x="78" y="254" width="100" height="6" rx="3" fill="rgba(255,255,255,0.15)"/>
+  <rect x="78" y="268" width="80" height="6" rx="3" fill="rgba(255,255,255,0.1)"/>
+  <!-- Input label -->
+  <text x="140" y="325" text-anchor="middle" fill="rgba(102,126,234,0.8)" font-family="'Inter', Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1">INPUT</text>
+
+  <!-- ARROW 1 -->
+  <path d="M 230 195 L 298 195" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"/>
+  <polygon points="298,190 310,195 298,200" fill="#f093fb"/>
+
+  <!-- CENTER: Docling Processing Engine -->
+  <rect x="310" y="110" width="280" height="170" rx="16" fill="url(#cardGrad)" stroke="rgba(102,126,234,0.5)" stroke-width="2" filter="url(#shadow)"/>
+  <!-- Engine header bar -->
+  <rect x="310" y="110" width="280" height="44" rx="16" fill="rgba(102,126,234,0.25)"/>
+  <rect x="310" y="134" width="280" height="20" fill="rgba(102,126,234,0.25)"/>
+  <!-- IBM logo placeholder -->
+  <rect x="326" y="122" width="22" height="14" rx="3" fill="rgba(102,126,234,0.6)"/>
+  <text x="330" y="132" fill="white" font-family="'Inter', Arial, sans-serif" font-size="9" font-weight="800">IBM</text>
+  <text x="360" y="133" fill="rgba(255,255,255,0.9)" font-family="'Inter', Arial, sans-serif" font-size="13" font-weight="700">Docling Engine</text>
+  <!-- Sub-feature chips -->
+  <rect x="326" y="168" width="92" height="22" rx="11" fill="rgba(240,147,251,0.15)" stroke="rgba(240,147,251,0.4)" stroke-width="1"/>
+  <text x="372" y="183" text-anchor="middle" fill="#f093fb" font-family="'Inter', Arial, sans-serif" font-size="10" font-weight="600">Layout AI</text>
+
+  <rect x="430" y="168" width="92" height="22" rx="11" fill="rgba(66,153,225,0.15)" stroke="rgba(66,153,225,0.4)" stroke-width="1"/>
+  <text x="476" y="183" text-anchor="middle" fill="#7dd3fc" font-family="'Inter', Arial, sans-serif" font-size="10" font-weight="600">Table AI</text>
+
+  <rect x="326" y="200" width="92" height="22" rx="11" fill="rgba(72,187,120,0.15)" stroke="rgba(72,187,120,0.4)" stroke-width="1"/>
+  <text x="372" y="215" text-anchor="middle" fill="#86efac" font-family="'Inter', Arial, sans-serif" font-size="10" font-weight="600">OCR / Vision</text>
+
+  <rect x="430" y="200" width="92" height="22" rx="11" fill="rgba(236,201,75,0.15)" stroke="rgba(236,201,75,0.4)" stroke-width="1"/>
+  <text x="476" y="215" text-anchor="middle" fill="#fcd34d" font-family="'Inter', Arial, sans-serif" font-size="10" font-weight="600">RAG-Ready</text>
+
+  <rect x="326" y="232" width="92" height="22" rx="11" fill="rgba(196,181,253,0.15)" stroke="rgba(196,181,253,0.4)" stroke-width="1"/>
+  <text x="372" y="247" text-anchor="middle" fill="#c4b5fd" font-family="'Inter', Arial, sans-serif" font-size="10" font-weight="600">Struct. Output</text>
+
+  <rect x="430" y="232" width="92" height="22" rx="11" fill="rgba(251,146,60,0.15)" stroke="rgba(251,146,60,0.4)" stroke-width="1"/>
+  <text x="476" y="247" text-anchor="middle" fill="#fdba74" font-family="'Inter', Arial, sans-serif" font-size="10" font-weight="600">Open Source</text>
+
+  <!-- Docling label below -->
+  <text x="450" y="325" text-anchor="middle" fill="rgba(102,126,234,0.8)" font-family="'Inter', Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1">DOCLING v2</text>
+
+  <!-- ARROW 2 -->
+  <path d="M 600 195 L 668 195" stroke="url(#accentGrad)" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="6,3"/>
+  <polygon points="668,190 680,195 668,200" fill="#667eea"/>
+
+  <!-- RIGHT PANEL: JSON Output -->
+  <rect x="680" y="90" width="160" height="210" rx="12" fill="url(#cardGrad)" stroke="rgba(102,126,234,0.4)" stroke-width="1.5" filter="url(#shadow)"/>
+  <!-- Code header -->
+  <rect x="680" y="90" width="160" height="36" rx="12" fill="rgba(72,187,120,0.2)"/>
+  <rect x="680" y="114" width="160" height="12" fill="rgba(72,187,120,0.2)"/>
+  <!-- Dot indicators -->
+  <circle cx="697" cy="108" r="5" fill="#f5576c"/>
+  <circle cx="712" cy="108" r="5" fill="#fcd34d"/>
+  <circle cx="727" cy="108" r="5" fill="#48bb78"/>
+  <text x="740" y="112" fill="rgba(255,255,255,0.5)" font-family="'Fira Code', monospace" font-size="9">output.json</text>
+  <!-- JSON content -->
+  <text x="692" y="148" fill="#f093fb" font-family="'Fira Code', monospace" font-size="10">{</text>
+  <text x="700" y="163" fill="#7dd3fc" font-family="'Fira Code', monospace" font-size="9">"title":</text>
+  <text x="700" y="178" fill="#fcd34d" font-family="'Fira Code', monospace" font-size="9">"tables":</text>
+  <text x="700" y="193" fill="#86efac" font-family="'Fira Code', monospace" font-size="9">"text":</text>
+  <text x="700" y="208" fill="#fdba74" font-family="'Fira Code', monospace" font-size="9">"images":</text>
+  <text x="700" y="223" fill="#c4b5fd" font-family="'Fira Code', monospace" font-size="9">"meta":</text>
+  <text x="700" y="238" fill="#f093fb" font-family="'Fira Code', monospace" font-size="9">"export":</text>
+  <text x="692" y="255" fill="#f093fb" font-family="'Fira Code', monospace" font-size="10">}</text>
+  <rect x="692" y="261" width="130" height="4" rx="2" fill="rgba(102,126,234,0.3)"/>
+  <rect x="692" y="271" width="100" height="4" rx="2" fill="rgba(102,126,234,0.2)"/>
+  <!-- Output label -->
+  <text x="760" y="325" text-anchor="middle" fill="rgba(72,187,120,0.8)" font-family="'Inter', Arial, sans-serif" font-size="11" font-weight="600" letter-spacing="1">OUTPUT</text>
+
+  <!-- Main Title -->
+  <text x="450" y="378" text-anchor="middle" fill="white" font-family="'Inter', Arial, sans-serif" font-size="38" font-weight="800" letter-spacing="-1" filter="url(#glow)">Docling</text>
+  <text x="450" y="408" text-anchor="middle" fill="rgba(255,255,255,0.6)" font-family="'Inter', Arial, sans-serif" font-size="15" font-weight="400" letter-spacing="1">AI-Powered Document Parsing &amp; Extraction</text>
+
+  <!-- Bottom accent line -->
+  <rect x="350" y="425" width="200" height="2" rx="1" fill="url(#accentGrad)"/>
+</svg>
