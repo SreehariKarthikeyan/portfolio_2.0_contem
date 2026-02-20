@@ -1254,11 +1254,7 @@ section {
   border-radius: 0 4px 4px 0;
 }
 
-/* --- Facts: Gradient Icon Background --- */
-.facts .count-box i {
-  background: linear-gradient(135deg, #0563bb 0%, #17c3e8 100%);
-  box-shadow: 0 4px 15px rgba(5, 99, 187, 0.35);
-}
+
 
 /* ============================================
    ABOUT SECTION REDESIGN
