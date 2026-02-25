@@ -331,46 +331,53 @@ function loadTicker() {
 const YF_CHART = (symbol, range) =>
   `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=${range}`;
 
-// Ordered list of CORS proxies to try. Each entry provides:
-//   build(url)  → proxied URL string
-//   parse(res)  → Promise<plain object>  (handles any wrapper format)
+// Ordered list of data sources to try. Each entry provides:
+//   build(symbol, range) → URL string  (or null to skip)
+//   parse(res)           → Promise<plain object>
 const PROXIES = [
   {
+    // Primary: Netlify serverless function — runs server-side, bypasses all CORS/IP blocks
+    name: 'netlify-fn',
+    build: (sym, range) => `/.netlify/functions/finance?symbol=${encodeURIComponent(sym)}&range=${encodeURIComponent(range)}`,
+    parse: r => r.json(),
+  },
+  {
     name: 'allorigins-raw',
-    build: url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    build: (sym, range) => `https://api.allorigins.win/raw?url=${encodeURIComponent(YF_CHART(sym, range))}`,
     parse: r => r.json(),
   },
   {
     name: 'corsproxy.io',
-    build: url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+    build: (sym, range) => `https://corsproxy.io/?${encodeURIComponent(YF_CHART(sym, range))}`,
     parse: r => r.json(),
   },
   {
     name: 'allorigins-get',
-    build: url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+    build: (sym, range) => `https://api.allorigins.win/get?url=${encodeURIComponent(YF_CHART(sym, range))}`,
     parse: async r => { const d = await r.json(); return JSON.parse(d.contents); },
   },
   {
     name: 'thingproxy',
-    build: url => `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(url)}`,
+    build: (sym, range) => `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(YF_CHART(sym, range))}`,
     parse: r => r.json(),
   },
 ];
 
-async function fetchWithFallback(targetUrl) {
+async function fetchWithFallback(symbol, range) {
   let lastErr = null;
   for (const proxy of PROXIES) {
     try {
+      const url = proxy.build(symbol, range);
       const controller = new AbortController();
       const timer = setTimeout(() => controller.abort(), 8000);
-      const r = await fetch(proxy.build(targetUrl), { signal: controller.signal });
+      const r = await fetch(url, { signal: controller.signal });
       clearTimeout(timer);
       if (!r.ok) throw new Error(`HTTP ${r.status} from ${proxy.name}`);
       const data = await proxy.parse(r);
       return data;
     } catch (e) {
       lastErr = e;
-      // try next proxy
+      // try next source
     }
   }
   throw lastErr || new Error('All data sources unavailable. Please try again later.');
@@ -379,7 +386,7 @@ async function fetchWithFallback(targetUrl) {
 function fetchData(symbol, range) {
   showLoading();
 
-  fetchWithFallback(YF_CHART(symbol, range))
+  fetchWithFallback(symbol, range)
     .then(data => {
       const result = data?.chart?.result?.[0];
       if (!result) throw new Error('Symbol not found or no data returned.');
