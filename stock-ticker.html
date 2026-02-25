@@ -326,21 +326,72 @@ function loadTicker() {
 }
 
 // ─── Fetch ────────────────────────────────────────────────────────────────────
+
+// Yahoo Finance chart endpoint (query2 is less rate-limited than query1)
+const YF_CHART = (symbol, range) =>
+  `https://query2.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=${range}`;
+
+// Ordered list of CORS proxies to try. Each entry provides:
+//   build(url)  → proxied URL string
+//   parse(res)  → Promise<plain object>  (handles any wrapper format)
+const PROXIES = [
+  {
+    name: 'allorigins-raw',
+    build: url => `https://api.allorigins.win/raw?url=${encodeURIComponent(url)}`,
+    parse: r => r.json(),
+  },
+  {
+    name: 'corsproxy.io',
+    build: url => `https://corsproxy.io/?${encodeURIComponent(url)}`,
+    parse: r => r.json(),
+  },
+  {
+    name: 'allorigins-get',
+    build: url => `https://api.allorigins.win/get?url=${encodeURIComponent(url)}`,
+    parse: async r => { const d = await r.json(); return JSON.parse(d.contents); },
+  },
+  {
+    name: 'thingproxy',
+    build: url => `https://thingproxy.freeboard.io/fetch/${encodeURIComponent(url)}`,
+    parse: r => r.json(),
+  },
+];
+
+async function fetchWithFallback(targetUrl) {
+  let lastErr = null;
+  for (const proxy of PROXIES) {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 8000);
+      const r = await fetch(proxy.build(targetUrl), { signal: controller.signal });
+      clearTimeout(timer);
+      if (!r.ok) throw new Error(`HTTP ${r.status} from ${proxy.name}`);
+      const data = await proxy.parse(r);
+      return data;
+    } catch (e) {
+      lastErr = e;
+      // try next proxy
+    }
+  }
+  throw lastErr || new Error('All data sources unavailable. Please try again later.');
+}
+
 function fetchData(symbol, range) {
   showLoading();
 
-  // Yahoo Finance chart endpoint via public CORS proxy
-  const yUrl   = `https://query1.finance.yahoo.com/v8/finance/chart/${symbol}?interval=1d&range=${range}&corsDomain=finance.yahoo.com`;
-  const proxy  = `https://corsproxy.io/?${encodeURIComponent(yUrl)}`;
-
-  fetch(proxy)
-    .then(r => { if (!r.ok) throw new Error(`HTTP ${r.status}`); return r.json(); })
+  fetchWithFallback(YF_CHART(symbol, range))
     .then(data => {
       const result = data?.chart?.result?.[0];
       if (!result) throw new Error('Symbol not found or no data returned.');
       processData(result, range);
     })
-    .catch(err => showError(err.message));
+    .catch(err => {
+      const msg = err.message || String(err);
+      const hint = msg.includes('403')
+        ? 'Yahoo Finance is temporarily blocking requests. Please wait a moment and try again.'
+        : msg;
+      showError(hint);
+    });
 }
 
 // ─── Process ──────────────────────────────────────────────────────────────────
