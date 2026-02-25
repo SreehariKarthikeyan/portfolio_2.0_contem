@@ -1,0 +1,110 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <!-- Background -->
+  <rect width="600" height="400" fill="#0d1117"/>
+
+  <!-- Header bar -->
+  <rect width="600" height="52" fill="#161b22"/>
+  <rect y="52" width="600" height="1" fill="#30363d"/>
+
+  <!-- Header: chart icon + title -->
+  <text x="20" y="34" font-family="Arial,sans-serif" font-size="22" fill="#58a6ff">📈</text>
+  <text x="50" y="34" font-family="Arial,sans-serif" font-size="16" font-weight="bold" fill="#e6edf3">Stock Ticker</text>
+  <text x="148" y="34" font-family="Arial,sans-serif" font-size="12" fill="#8b949e">Finance Dashboard</text>
+
+  <!-- Ticker chip: RELIANCE.NS -->
+  <rect x="420" y="13" width="160" height="26" rx="5" fill="#21262d" stroke="#30363d" stroke-width="1"/>
+  <text x="500" y="31" font-family="Arial,sans-serif" font-size="12" fill="#e6edf3" text-anchor="middle">RELIANCE.NS  ▲ 0.84%</text>
+
+  <!-- Price hero -->
+  <text x="20" y="90" font-family="Arial,sans-serif" font-size="13" fill="#8b949e">RELIANCE INDUSTRIES</text>
+  <text x="20" y="120" font-family="Arial,sans-serif" font-size="30" font-weight="bold" fill="#e6edf3">₹2,847.60</text>
+  <text x="20" y="142" font-family="Arial,sans-serif" font-size="14" font-weight="600" fill="#3fb950">▲ 23.75  (0.84%)</text>
+
+  <!-- Stat mini-cards row -->
+  <!-- Card 1: Volume -->
+  <rect x="20" y="160" width="120" height="46" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="30" y="176" font-family="Arial,sans-serif" font-size="9" fill="#8b949e" letter-spacing="0.5">VOLUME</text>
+  <text x="30" y="196" font-family="Arial,sans-serif" font-size="14" font-weight="600" fill="#e6edf3">12.45M</text>
+
+  <!-- Card 2: 52W High -->
+  <rect x="148" y="160" width="120" height="46" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="158" y="176" font-family="Arial,sans-serif" font-size="9" fill="#8b949e" letter-spacing="0.5">52W HIGH</text>
+  <text x="158" y="196" font-family="Arial,sans-serif" font-size="14" font-weight="600" fill="#e6edf3">₹3,217.90</text>
+
+  <!-- Card 3: Market Cap -->
+  <rect x="276" y="160" width="120" height="46" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="286" y="176" font-family="Arial,sans-serif" font-size="9" fill="#8b949e" letter-spacing="0.5">MARKET CAP</text>
+  <text x="286" y="196" font-family="Arial,sans-serif" font-size="14" font-weight="600" fill="#e6edf3">₹19.28T</text>
+
+  <!-- Card 4: RSI -->
+  <rect x="404" y="160" width="88" height="46" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="414" y="176" font-family="Arial,sans-serif" font-size="9" fill="#8b949e" letter-spacing="0.5">RSI (14)</text>
+  <text x="414" y="196" font-family="Arial,sans-serif" font-size="14" font-weight="600" fill="#d29922">58.3</text>
+
+  <!-- Card 5: Exchange badge -->
+  <rect x="500" y="160" width="82" height="46" rx="6" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="510" y="176" font-family="Arial,sans-serif" font-size="9" fill="#8b949e" letter-spacing="0.5">EXCHANGE</text>
+  <text x="510" y="196" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#58a6ff">NSE</text>
+
+  <!-- Chart panel -->
+  <rect x="20" y="220" width="562" height="155" rx="8" fill="#161b22" stroke="#30363d" stroke-width="1"/>
+  <text x="34" y="240" font-family="Arial,sans-serif" font-size="11" font-weight="600" fill="#e6edf3">Price History with Moving Averages</text>
+
+  <!-- Range pills -->
+  <rect x="424" y="228" width="28" height="16" rx="3" fill="#58a6ff"/>
+  <text x="438" y="240" font-family="Arial,sans-serif" font-size="9" fill="#0d1117" font-weight="700" text-anchor="middle">1Y</text>
+  <text x="460" y="240" font-family="Arial,sans-serif" font-size="9" fill="#8b949e">3M</text>
+  <text x="480" y="240" font-family="Arial,sans-serif" font-size="9" fill="#8b949e">6M</text>
+  <text x="500" y="240" font-family="Arial,sans-serif" font-size="9" fill="#8b949e">2Y</text>
+  <text x="520" y="240" font-family="Arial,sans-serif" font-size="9" fill="#8b949e">5Y</text>
+
+  <!-- Chart grid lines -->
+  <line x1="34" y1="260" x2="570" y2="260" stroke="#30363d" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="34" y1="285" x2="570" y2="285" stroke="#30363d" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="34" y1="310" x2="570" y2="310" stroke="#30363d" stroke-width="0.5" stroke-dasharray="4,4"/>
+  <line x1="34" y1="355" x2="570" y2="355" stroke="#30363d" stroke-width="0.5"/>
+
+  <!-- Price chart fill (area under curve) -->
+  <defs>
+    <linearGradient id="priceGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#58a6ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#58a6ff" stop-opacity="0.02"/>
+    </linearGradient>
+  </defs>
+  <polygon
+    points="34,340 60,330 90,322 120,318 145,325 170,315 200,305 225,300 250,290 275,295 300,282 325,275 350,270 375,265 400,260 425,268 450,258 475,255 500,250 525,255 550,248 570,252 570,355 34,355"
+    fill="url(#priceGrad)"/>
+
+  <!-- Price line (blue) -->
+  <polyline
+    points="34,340 60,330 90,322 120,318 145,325 170,315 200,305 225,300 250,290 275,295 300,282 325,275 350,270 375,265 400,260 425,268 450,258 475,255 500,250 525,255 550,248 570,252"
+    fill="none" stroke="#58a6ff" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- SMA 20 (orange) -->
+  <polyline
+    points="34,342 70,335 110,328 150,322 190,320 230,308 270,300 310,290 350,278 390,270 430,265 470,260 510,256 550,253 570,255"
+    fill="none" stroke="#f0883e" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- SMA 50 (green) -->
+  <polyline
+    points="34,344 90,338 150,330 210,322 270,312 330,302 390,288 450,274 510,264 570,260"
+    fill="none" stroke="#3fb950" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+
+  <!-- Legend -->
+  <rect x="34" y="360" width="10" height="2" fill="#58a6ff"/>
+  <text x="48" y="363" font-family="Arial,sans-serif" font-size="8" fill="#8b949e">Close</text>
+  <rect x="80" y="360" width="10" height="2" fill="#f0883e"/>
+  <text x="94" y="363" font-family="Arial,sans-serif" font-size="8" fill="#8b949e">SMA 20</text>
+  <rect x="130" y="360" width="10" height="2" fill="#3fb950"/>
+  <text x="144" y="363" font-family="Arial,sans-serif" font-size="8" fill="#8b949e">SMA 50</text>
+
+  <!-- X-axis tick labels -->
+  <text x="34"  y="370" font-family="Arial,sans-serif" font-size="8" fill="#8b949e">Mar</text>
+  <text x="115" y="370" font-family="Arial,sans-serif" font-size="8" fill="#8b949e">Jun</text>
+  <text x="220" y="370" font-family="Arial,sans-serif" font-size="8" fill="#8b949e">Sep</text>
+  <text x="340" y="370" font-family="Arial,sans-serif" font-size="8" fill="#8b949e">Dec</text>
+  <text x="460" y="370" font-family="Arial,sans-serif" font-size="8" fill="#8b949e">Mar</text>
+
+  <!-- Subtle bottom border -->
+  <rect y="396" width="600" height="4" fill="#161b22"/>
+</svg>
