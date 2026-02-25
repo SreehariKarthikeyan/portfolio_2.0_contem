@@ -267,24 +267,30 @@
   <a href="index.html">&#8592; Portfolio</a>
   <h1>&#128200; Stock Ticker</h1>
   <div class="search-bar">
-    <input type="text" id="symbolInput" placeholder="e.g. AAPL" maxlength="12" />
+    <input type="text" id="symbolInput" placeholder="e.g. AAPL, RELIANCE.NS" maxlength="20" />
     <button onclick="loadTicker()">Search</button>
   </div>
 </header>
 
 <main>
   <div class="quick-links" style="margin-bottom:20px;">
-    <span style="color:var(--muted);font-size:13px;align-self:center;">Quick:</span>
+    <span style="color:var(--muted);font-size:13px;align-self:center;">US:</span>
     <button onclick="setSymbol('AAPL')">AAPL</button>
     <button onclick="setSymbol('MSFT')">MSFT</button>
     <button onclick="setSymbol('GOOGL')">GOOGL</button>
     <button onclick="setSymbol('AMZN')">AMZN</button>
     <button onclick="setSymbol('TSLA')">TSLA</button>
-    <button onclick="setSymbol('SPY')">SPY</button>
-    <button onclick="setSymbol('QQQ')">QQQ</button>
     <button onclick="setSymbol('NVDA')">NVDA</button>
-    <button onclick="setSymbol('JPM')">JPM</button>
+    <button onclick="setSymbol('SPY')">SPY</button>
     <button onclick="setSymbol('BTC-USD')">BTC</button>
+    <span style="color:var(--muted);font-size:13px;align-self:center;margin-left:4px;">🇮🇳 India:</span>
+    <button onclick="setSymbol('RELIANCE.NS')">Reliance</button>
+    <button onclick="setSymbol('TCS.NS')">TCS</button>
+    <button onclick="setSymbol('INFY.NS')">Infosys</button>
+    <button onclick="setSymbol('HDFCBANK.NS')">HDFC Bank</button>
+    <button onclick="setSymbol('ICICIBANK.NS')">ICICI Bank</button>
+    <button onclick="setSymbol('^NSEI')">NIFTY 50</button>
+    <button onclick="setSymbol('^BSESN')">SENSEX</button>
   </div>
 
   <div id="content">
@@ -462,6 +468,7 @@ function renderPage(d) {
   const cap    = meta.marketCap;
   const week52H = meta['52WeekHigh'] ?? meta.fiftyTwoWeekHigh;
   const week52L = meta['52WeekLow']  ?? meta.fiftyTwoWeekLow;
+  const cs      = currencySymbol(meta.currency);
 
   // RSI signal
   let rsiSignal = 'neutral', rsiText = 'Neutral';
@@ -484,9 +491,9 @@ function renderPage(d) {
         <span class="exchange">${meta.exchangeName ?? meta.fullExchangeName ?? ''} &bull; ${meta.currency ?? 'USD'}</span>
       </div>
       <div class="price-block">
-        <div class="price">$${fmtPrice(price)}</div>
+        <div class="price">${cs}${fmtPrice(price)}</div>
         <div class="change ${posNeg ? 'pos' : 'neg'}">
-          ${posNeg ? '▲' : '▼'} ${fmtPrice(Math.abs(change))} (${fmtPrice(Math.abs(changePct))}%)
+          ${posNeg ? '▲' : '▼'} ${cs}${fmtPrice(Math.abs(change))} (${fmtPrice(Math.abs(changePct))}%)
         </div>
         <div class="timestamp">Last updated: ${new Date().toLocaleTimeString()}</div>
       </div>
@@ -495,30 +502,30 @@ function renderPage(d) {
     <p class="section-title">Market Data</p>
     <div class="stats-grid">
       <div class="stat-card"><div class="label">Volume</div><div class="value">${fmtNum(vol)}</div></div>
-      <div class="stat-card"><div class="label">Market Cap</div><div class="value">${cap ? fmtMarketCap(cap) : 'N/A'}</div></div>
-      <div class="stat-card"><div class="label">52W High</div><div class="value">${week52H ? '$'+fmtPrice(week52H) : 'N/A'}</div></div>
-      <div class="stat-card"><div class="label">52W Low</div><div class="value">${week52L ? '$'+fmtPrice(week52L) : 'N/A'}</div></div>
-      <div class="stat-card"><div class="label">Day High</div><div class="value">${meta.regularMarketDayHigh ? '$'+fmtPrice(meta.regularMarketDayHigh) : 'N/A'}</div></div>
-      <div class="stat-card"><div class="label">Day Low</div><div class="value">${meta.regularMarketDayLow ? '$'+fmtPrice(meta.regularMarketDayLow) : 'N/A'}</div></div>
-      <div class="stat-card"><div class="label">Prev Close</div><div class="value">${meta.chartPreviousClose ? '$'+fmtPrice(meta.chartPreviousClose) : 'N/A'}</div></div>
-      <div class="stat-card"><div class="label">Open</div><div class="value">${meta.regularMarketOpen ? '$'+fmtPrice(meta.regularMarketOpen) : 'N/A'}</div></div>
+      <div class="stat-card"><div class="label">Market Cap</div><div class="value">${cap ? fmtMarketCap(cap, cs) : 'N/A'}</div></div>
+      <div class="stat-card"><div class="label">52W High</div><div class="value">${week52H ? cs+fmtPrice(week52H) : 'N/A'}</div></div>
+      <div class="stat-card"><div class="label">52W Low</div><div class="value">${week52L ? cs+fmtPrice(week52L) : 'N/A'}</div></div>
+      <div class="stat-card"><div class="label">Day High</div><div class="value">${meta.regularMarketDayHigh ? cs+fmtPrice(meta.regularMarketDayHigh) : 'N/A'}</div></div>
+      <div class="stat-card"><div class="label">Day Low</div><div class="value">${meta.regularMarketDayLow ? cs+fmtPrice(meta.regularMarketDayLow) : 'N/A'}</div></div>
+      <div class="stat-card"><div class="label">Prev Close</div><div class="value">${meta.chartPreviousClose ? cs+fmtPrice(meta.chartPreviousClose) : 'N/A'}</div></div>
+      <div class="stat-card"><div class="label">Open</div><div class="value">${meta.regularMarketOpen ? cs+fmtPrice(meta.regularMarketOpen) : 'N/A'}</div></div>
     </div>
 
     <p class="section-title">Technical Indicators</p>
     <div class="technicals-grid">
       <div class="tech-card">
         <div class="label">SMA (20)</div>
-        <div class="value">$${fmtPrice(lastSma20)}</div>
+        <div class="value">${cs}${fmtPrice(lastSma20)}</div>
         <div class="signal ${vsSma20}">${price > lastSma20 ? 'Price above SMA20' : 'Price below SMA20'}</div>
       </div>
       <div class="tech-card">
         <div class="label">SMA (50)</div>
-        <div class="value">$${fmtPrice(lastSma50)}</div>
+        <div class="value">${cs}${fmtPrice(lastSma50)}</div>
         <div class="signal ${vsSma50}">${price > lastSma50 ? 'Price above SMA50' : 'Price below SMA50'}</div>
       </div>
       <div class="tech-card">
         <div class="label">EMA (20)</div>
-        <div class="value">$${fmtPrice(lastEma20)}</div>
+        <div class="value">${cs}${fmtPrice(lastEma20)}</div>
         <div class="signal ${price > lastEma20 ? 'bullish' : 'bearish'}">${price > lastEma20 ? 'Price above EMA20' : 'Price below EMA20'}</div>
       </div>
       <div class="tech-card">
@@ -533,12 +540,12 @@ function renderPage(d) {
       </div>
       <div class="tech-card">
         <div class="label">BB Upper (20,2)</div>
-        <div class="value">$${fmtPrice(lastBBUpper)}</div>
+        <div class="value">${cs}${fmtPrice(lastBBUpper)}</div>
         <div class="signal ${price > lastBBUpper ? 'bearish' : 'neutral'}">${price > lastBBUpper ? 'Above upper band' : 'Within bands'}</div>
       </div>
       <div class="tech-card">
         <div class="label">BB Lower (20,2)</div>
-        <div class="value">$${fmtPrice(lastBBLower)}</div>
+        <div class="value">${cs}${fmtPrice(lastBBLower)}</div>
         <div class="signal ${price < lastBBLower ? 'bullish' : 'neutral'}">${price < lastBBLower ? 'Below lower band' : 'Within bands'}</div>
       </div>
     </div>
@@ -580,7 +587,7 @@ function renderPage(d) {
     </div>
   `;
 
-  buildPriceChart(labels, closes, sma20, sma50, ema20);
+  buildPriceChart(labels, closes, sma20, sma50, ema20, cs);
   buildVolumeChart(labels, allVolumes);
   buildRsiChart(labels, rsi(closes, 14));
   buildMacdChart(labels, macdRes);
@@ -592,7 +599,7 @@ function changeRange(range) {
 }
 
 // ─── Chart builders ───────────────────────────────────────────────────────────
-function buildPriceChart(labels, closes, sma20Data, sma50Data, ema20Data) {
+function buildPriceChart(labels, closes, sma20Data, sma50Data, ema20Data, cs) {
   if (priceChart) { priceChart.destroy(); }
   const ctx = document.getElementById('priceChart').getContext('2d');
   priceChart = new Chart(ctx, {
@@ -637,7 +644,7 @@ function buildPriceChart(labels, closes, sma20Data, sma50Data, ema20Data) {
         },
       ]
     },
-    options: chartOptions('Price (USD)')
+    options: chartOptions(`Price (${cs.trim()})`)
   });
 }
 
@@ -880,6 +887,13 @@ function last(arr) {
 }
 
 // ─── Formatting ───────────────────────────────────────────────────────────────
+const CURRENCY_SYMBOLS = {
+  USD: '$', INR: '₹', EUR: '€', GBP: '£', JPY: '¥',
+  CAD: 'CA$', AUD: 'A$', HKD: 'HK$', SGD: 'S$', CNY: '¥',
+};
+function currencySymbol(code) {
+  return CURRENCY_SYMBOLS[code] || (code ? code + ' ' : '$');
+}
 function fmtPrice(n) {
   if (n == null || isNaN(n)) return 'N/A';
   return n.toFixed(2);
@@ -893,11 +907,12 @@ function fmtNum(n) {
   return n.toString();
 }
 
-function fmtMarketCap(n) {
-  if (n >= 1e12) return '$' + (n / 1e12).toFixed(2) + 'T';
-  if (n >= 1e9)  return '$' + (n / 1e9).toFixed(2)  + 'B';
-  if (n >= 1e6)  return '$' + (n / 1e6).toFixed(2)  + 'M';
-  return '$' + n;
+function fmtMarketCap(n, cs) {
+  cs = cs || '$';
+  if (n >= 1e12) return cs + (n / 1e12).toFixed(2) + 'T';
+  if (n >= 1e9)  return cs + (n / 1e9).toFixed(2)  + 'B';
+  if (n >= 1e6)  return cs + (n / 1e6).toFixed(2)  + 'M';
+  return cs + n;
 }
 
 // ─── UI helpers ───────────────────────────────────────────────────────────────
@@ -905,7 +920,7 @@ function showLoading() {
   document.getElementById('content').innerHTML = `
     <div class="status-box">
       <div class="spinner"></div>
-      <p>Fetching data from Yahoo Finance…</p>
+      <p>Fetching data… <span style="color:var(--muted);font-size:13px;">(first load may take a few seconds)</span></p>
     </div>`;
 }
 
@@ -914,7 +929,8 @@ function showError(msg) {
     <div class="status-box error">
       <p>&#9888; ${msg}</p>
       <p style="margin-top:10px;font-size:13px;color:var(--muted)">
-        Check the symbol and try again. Examples: AAPL, MSFT, BTC-USD, ^GSPC
+        Check the symbol and try again. US: AAPL, MSFT, BTC-USD, ^GSPC &nbsp;&bull;&nbsp;
+        India (NSE): RELIANCE.NS, TCS.NS, INFY.NS, ^NSEI
       </p>
     </div>`;
 }
